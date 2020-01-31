@@ -46,6 +46,8 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="<?php echo base_url(); ?>dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url(); ?>dist/js/pages/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>plugins/datatables/jquery.dataTables.js"></script>
+<script src="<?php echo base_url(); ?>plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>dist/js/demo.js"></script>
 </body>
