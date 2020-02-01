@@ -57,7 +57,7 @@ div.dataTables_paginate{
                 <tr>
                   <td>Doni Nurramdan, A. Md.</td>
                   <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Staff/ Programmer WebApps (FullStack)</td>
+                  <td style="text-align:center;">Programmer WebApps (FullStack)</td>
                   <td style="text-align:center;">23 Mei 2018</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -68,8 +68,8 @@ div.dataTables_paginate{
                 <tr>
                   <td>Muhammad Faqih, S. Kom.</td>
                   <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Staff/ Programmer Mobile (FullStack)</td>
-                  <td style="text-align:center;">Agustus 2018</td>
+                  <td style="text-align:center;">Programmer Mobile (FullStack)</td>
+                  <td style="text-align:center;">Oktober 2018</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -79,7 +79,7 @@ div.dataTables_paginate{
                 <tr>
                   <td>Cintiya Dewiani Putri, S. Kom.</td>
                   <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Staff/ Programmer Mobile (FullStack)</td>
+                  <td style="text-align:center;">Programmer Mobile (FullStack)</td>
                   <td style="text-align:center;">15 Januari 2020</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -90,8 +90,8 @@ div.dataTables_paginate{
                 <tr>
                   <td>Titi Widaretna, S. T.</td>
                   <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Staff/ Kepala PPSI</td>
-                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Kepala PPSI</td>
+                  <td style="text-align:center;">27 Januari 2017</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -101,8 +101,8 @@ div.dataTables_paginate{
                 <tr>
                   <td>Gia Yuliana, S. Kom.</td>
                   <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Staff/ Programmer/ System Documentation</td>
-                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">System Documentation</td>
+                  <td style="text-align:center;">2017</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -112,8 +112,8 @@ div.dataTables_paginate{
                 <tr>
                   <td>Andri Nugroho, S. Kom.</td>
                   <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Staff/ Programmer/ Front End</td>
-                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Programmer Front End</td>
+                  <td style="text-align:center;">September 2018</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -123,8 +123,30 @@ div.dataTables_paginate{
                 <tr>
                   <td>Syifa Nur Fauziah, S. Kom.</td>
                   <td>Biro Administrasi Akademik dan Kemahasiswaan (BAAK)</td>
-                  <td style="text-align:center;">Staff/ Kepala BAAK</td>
-                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Kepala BAAK</td>
+                  <td style="text-align:center;">2017</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Hena Sulaeman, S. T.</td>
+                  <td>Laborarorium Komputer</td>
+                  <td style="text-align:center;">Koordinator Laboran</td>
+                  <td style="text-align:center;">2017</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Fahri Fauzi</td>
+                  <td>Laborarorium Komputer</td>
+                  <td style="text-align:center;">Laboran</td>
+                  <td style="text-align:center;">2019</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>

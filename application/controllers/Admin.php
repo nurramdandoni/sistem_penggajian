@@ -11,4 +11,9 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('data_karyawan');
 	}
+
+	public function getDataJabatan()
+	{
+		$this->load->view('data_jabatan');
+	}
 }

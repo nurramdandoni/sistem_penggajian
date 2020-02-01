@@ -49,7 +49,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/getDataJabatan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Jabatan</p>
                 </a>

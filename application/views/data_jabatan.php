@@ -20,12 +20,12 @@ div.dataTables_paginate{
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Master</h1>
+            <h1>Data Jabatan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item"><a href="#">Data Master</a></li>
+              <li class="breadcrumb-item active">Data Jabatan</li>
             </ol>
           </div>
         </div>
@@ -38,40 +38,112 @@ div.dataTables_paginate{
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h1 class="card-title">Data Jabatan</h1>
+              <!-- <h1 class="card-title">Data Karyawan</h1> -->
+              <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Jabatan</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Nama Karyawan</th>
-                  <th>Divisi</th>
-                  <th>Jabatan</th>
-                  <th>Tanggal Recruitment</th>
-                  <th>Aksi</th>
+                  <th style="text-align:center;">Nama Jabatan</th>
+                  <th style="text-align:center;">Masa Jabatan</th>
+                  <th style="text-align:center;">Masa Promosi (Setelah*)</th>
+                  <th style="text-align:center;">Divisi</th>
+                  <th style="text-align:center;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
+                  <td>Kepala PPSI</td>
+                  <td style="text-align:center;">5 Tahun</td>
+                  <td style="text-align:center;">3 Tahun</td>
+                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
                 </tr>
-                </tbody>
-                <tfoot>
                 <tr>
-                    <th>Nama Karyawan</th>
-                    <th>Divisi</th>
-                    <th>Jabatan</th>
-                    <th>Tanggal Recruitment</th>
-                    <th>Aksi</th>
+                  <td>Programmer WebApps (FullStack)</td>
+                  <td style="text-align:center;">2 Tahun</td>
+                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
                 </tr>
-                </tfoot>
+                <tr>
+                  <td>Programmer Mobile (FullStack)</td>
+                  <td style="text-align:center;">2 Tahun</td>
+                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Programmer Front End</td>
+                  <td style="text-align:center;">2 Tahun</td>
+                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Kepala BAA</td>
+                  <td style="text-align:center;">5 Tahun</td>
+                  <td style="text-align:center;">3 Tahun</td>
+                  <td style="text-align:center;">Biro Administrasi Akademik</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Staff BAA</td>
+                  <td style="text-align:center;">2 Tahun</td>
+                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Biro Administrasi Akademik</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Koordinator Laboran</td>
+                  <td style="text-align:center;">5 Tahun</td>
+                  <td style="text-align:center;">3 Tahun</td>
+                  <td style="text-align:center;">Laboratorium Komputer</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Laboran</td>
+                  <td style="text-align:center;">2 Tahun</td>
+                  <td style="text-align:center;">-</td>
+                  <td style="text-align:center;">Laboratorium Komputer</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->
