@@ -55,25 +55,25 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/getDataGaji" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Gaji</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/getDataBonus" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Bonus</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/getDataLembur" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Lembur</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/getDataShift" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Shift</p>
                 </a>

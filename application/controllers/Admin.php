@@ -16,4 +16,24 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('data_jabatan');
 	}
+
+	public function getDataGaji()
+	{
+		$this->load->view('data_gaji');
+	}
+
+	public function getDataBonus()
+	{
+		$this->load->view('data_bonus');
+	}
+
+	public function getDataLembur()
+	{
+		$this->load->view('data_lembur');
+	}
+
+	public function getDataShift()
+	{
+		$this->load->view('data_shift');
+	}
 }
