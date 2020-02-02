@@ -29,6 +29,10 @@ class Model_admin extends CI_Model {
     public function m_getDataBonus(){
 		return $this->db->query("SELECT a.id,a.nama_bonus,a.insentif,a.keterangan FROM bonus a");
     }
+
+    public function m_getDataLembur(){
+		return $this->db->query("SELECT a.id,a.nama_lembur,a.satuan,a.insentif,a.keterangan FROM lembur a");
+    }
     
 
     // // INSERT AREA

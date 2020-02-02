@@ -43,7 +43,8 @@ class Admin extends CI_Controller {
 
 	public function getDataLembur()
 	{
-		$this->load->view('data_lembur');
+		$data['lembur'] = $this->Model_admin->m_getDataLembur();
+		$this->load->view('data_lembur',$data);
 	}
 
 	public function getDataShift()

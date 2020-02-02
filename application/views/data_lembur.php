@@ -54,62 +54,19 @@ div.dataTables_paginate{
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Lembur Hari Normal Shift 1</td>
-                  <td style="text-align:center;">per Jam</td>
-                  <td>10.000</td>
-                  <td>Sistem Flat</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Lembur Hari Normal Shift 2</td>
-                  <td style="text-align:center;">per Jam</td>
-                  <td>10.000</td>
-                  <td>Sistem Flat</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Lembur Hari Normal Shift 3</td>
-                  <td style="text-align:center;">per Jam</td>
-                  <td>10.000</td>
-                  <td>Sistem Flat</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Lembur Hari Normal All Shift</td>
-                  <td style="text-align:center;">per Jam ( < 5 Jam )</td>
-                  <td>10.000</td>
-                  <td>Sistem Relative</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Lembur Hari Normal All Shift</td>
-                  <td style="text-align:center;">per Jam ( >= 5 Jam )</td>
-                  <td>15.000</td>
-                  <td>Sistem Relative</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                
+                  <?php foreach($lembur->result() as $lmbr){ ?>
+                    <tr>
+                      <td><?php echo $lmbr->nama_lembur; ?></td>
+                      <td style="text-align:center;"><?php echo $lmbr->satuan; ?></td>
+                      <td><?php echo $lmbr->insentif; ?></td>
+                      <td><?php echo $lmbr->keterangan; ?></td>
+                      <td style="text-align:center;">
+                        <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                        <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                        <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                      </td>
+                    </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>
