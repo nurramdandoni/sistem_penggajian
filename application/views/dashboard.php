@@ -4,6 +4,8 @@ $this->load->view("template/navbar");
 $this->load->view("template/sidebar");
 ?>
 
+<!-- icon : https://ionicons.com/v2/ -->
+
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <div class="content-header">
