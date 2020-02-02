@@ -20,12 +20,12 @@ div.dataTables_paginate{
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Karyawan</h1>
+            <h1>Data Absensi</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Data Master</a></li>
-              <li class="breadcrumb-item active">Data Karyawan</li>
+              <li class="breadcrumb-item"><a href="#">Absensi Karyawan</a></li>
+              <li class="breadcrumb-item active">Data Absensi</li>
             </ol>
           </div>
         </div>
@@ -39,7 +39,7 @@ div.dataTables_paginate{
           <div class="card">
             <div class="card-header">
               <!-- <h1 class="card-title">Data Karyawan</h1> -->
-              <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Karyawan</a>
+              <!-- <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Karyawan</a> -->
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive">
@@ -51,7 +51,7 @@ div.dataTables_paginate{
                   <th style="text-align:center;">Divisi</th>
                   <th style="text-align:center;">Jabatan</th>
                   <th style="text-align:center;">Tanggal Recruitment</th>
-                  <th style="text-align:center;">Aksi</th>
+                  <th style="text-align:center;">Absensi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -63,8 +63,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">23 Mei 2018</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -75,8 +73,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">Oktober 2018</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -87,8 +83,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">15 Januari 2020</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -99,8 +93,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">27 Januari 2017</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -111,8 +103,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">2017</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -123,8 +113,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">September 2018</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -135,8 +123,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">2017</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -147,8 +133,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">2017</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 <tr>
@@ -159,8 +143,6 @@ div.dataTables_paginate{
                   <td style="text-align:center;">2019</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
                   </td>
                 </tr>
                 </tbody>

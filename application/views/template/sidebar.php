@@ -90,7 +90,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/getDataListAbsensi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Absensi</p>
                 </a>

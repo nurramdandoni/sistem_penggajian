@@ -42,7 +42,7 @@ div.dataTables_paginate{
               <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Bonus</a>
             </div>
             <!-- /.card-header -->
-            <div class="card-body">
+            <div class="card-body table-responsive">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
