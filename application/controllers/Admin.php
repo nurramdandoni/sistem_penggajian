@@ -2,14 +2,25 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
+	public function __construct(){
+		parent::__construct();
+		// $this->db2=$this->load->database('sttba789_elearning',TRUE);
+		// $this->load->helper('tanggal_helper');
+		// $this->load->library('pdf');
+		// $this->load->library('ciqrcode'); //pemanggilan library QR CODE');
+		$this->load->model('Model_admin');
+	}
+
 	public function index()
 	{
+		
 		$this->load->view('dashboard');
 	}
 
 	public function getDataKaryawan()
 	{
-		$this->load->view('data_karyawan');
+		$data['karyawan'] = $this->Model_admin->m_getKaryawan();
+		$this->load->view('data_karyawan',$data);
 	}
 
 	public function getDataJabatan()

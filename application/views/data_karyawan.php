@@ -14,6 +14,7 @@ div.dataTables_paginate{
 }
 </style>
 
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -55,114 +56,21 @@ div.dataTables_paginate{
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>STTB1234</td>
-                  <td>Doni Nurramdan, A. Md.</td>
-                  <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Programmer WebApps (FullStack)</td>
-                  <td style="text-align:center;">23 Mei 2018</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1235</td>
-                  <td>Muhammad Faqih, S. Kom.</td>
-                  <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Programmer Mobile (FullStack)</td>
-                  <td style="text-align:center;">Oktober 2018</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1236</td>
-                  <td>Cintiya Dewiani Putri, S. Kom.</td>
-                  <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Programmer Mobile (FullStack)</td>
-                  <td style="text-align:center;">15 Januari 2020</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1237</td>
-                  <td>Titi Widaretna, S. T.</td>
-                  <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Kepala PPSI</td>
-                  <td style="text-align:center;">27 Januari 2017</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1238</td>
-                  <td>Gia Yuliana, S. Kom.</td>
-                  <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">System Documentation</td>
-                  <td style="text-align:center;">2017</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1239</td>
-                  <td>Andri Nugroho, S. Kom.</td>
-                  <td>Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">Programmer Front End</td>
-                  <td style="text-align:center;">September 2018</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1240</td>
-                  <td>Syifa Nur Fauziah, S. Kom.</td>
-                  <td>Biro Administrasi Akademik dan Kemahasiswaan (BAAK)</td>
-                  <td style="text-align:center;">Kepala BAAK</td>
-                  <td style="text-align:center;">2017</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1241</td>
-                  <td>Hena Sulaeman, S. T.</td>
-                  <td>Laborarorium Komputer</td>
-                  <td style="text-align:center;">Koordinator Laboran</td>
-                  <td style="text-align:center;">2017</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>STTB1242</td>
-                  <td>Fahri Fauzi</td>
-                  <td>Laborarorium Komputer</td>
-                  <td style="text-align:center;">Laboran</td>
-                  <td style="text-align:center;">2019</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
+                  <?php foreach($karyawan->result() as $kry){ ?>
+                    <tr>
+                      <td><?php echo $kry->NIK; ?></td>
+                      <td><?php echo $kry->nama_karyawan; ?></td>
+                      <td><?php echo $kry->nama_divisi; ?></td>
+                      <td style="text-align:center;"><?php echo $kry->nama_jabatan; ?></td>
+                      <td style="text-align:center;"><?php echo $kry->tanggal_masuk; ?></td>
+                      <td style="text-align:center;">
+                        <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                        <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                        <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                      </td>
+                    </tr>
+                  <?php } ?>
+               
                 </tbody>
               </table>
             </div>
