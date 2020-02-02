@@ -52,67 +52,18 @@ div.dataTables_paginate{
                   <th style="text-align:center;">Aksi</th>
                 </tr>
                 </thead>
-                <tr>
-                  <td>Shift 1</td>
-                  <td style="text-align:center;">08.00 - 16.00 WIB</td>
-                  <td>Shift Jam Kerja Normal (Senin - Jumat)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shift 2</td>
-                  <td style="text-align:center;">16.00 - 24.00 WIB</td>
-                  <td>Shift Jam Kerja Normal (Senin - Jumat)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shift 3</td>
-                  <td style="text-align:center;">24.00 - 08.00 WIB</td>
-                  <td>Shift Jam Kerja Normal (Senin - Jumat)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shift Piket 1</td>
-                  <td style="text-align:center;">08.00 - 16.00 WIB</td>
-                  <td>Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shift Piket 2</td>
-                  <td style="text-align:center;">16.00 - 24.00 WIB</td>
-                  <td>Shift 2 diluar Jam Kerja Normal (Sabtu - Minggu)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Shift Piket 3</td>
-                  <td style="text-align:center;">24.00 - 08.00 WIB</td>
-                  <td>Shift 3 diluar Jam Kerja Normal (Sabtu - Minggu)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                
+                  <?php foreach($shift->result() as $shf){ ?>
+                    <tr>
+                      <td><?php echo $shf->nama_shift; ?></td>
+                      <td style="text-align:center;"><?php echo $shf->jam_awal.' - '.$shf->jam_awal.' WIB'; ?></td>
+                      <td><?php echo $shf->keterangan; ?></td>
+                      <td style="text-align:center;">
+                        <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                        <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                        <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                      </td>
+                    </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>

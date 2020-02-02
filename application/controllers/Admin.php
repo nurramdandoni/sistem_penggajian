@@ -49,7 +49,8 @@ class Admin extends CI_Controller {
 
 	public function getDataShift()
 	{
-		$this->load->view('data_shift');
+		$data['shift'] = $this->Model_admin->getDataShift();
+		$this->load->view('data_shift',$data);
 	}
 
 	public function getDataListAbsensi()

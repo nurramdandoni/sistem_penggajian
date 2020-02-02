@@ -33,6 +33,10 @@ class Model_admin extends CI_Model {
     public function m_getDataLembur(){
 		return $this->db->query("SELECT a.id,a.nama_lembur,a.satuan,a.insentif,a.keterangan FROM lembur a");
     }
+
+    public function getDataShift(){
+		return $this->db->query("SELECT a.id,a.nama_shift,a.jam_awal,a.jam_akhir,a.keterangan FROM shift a");
+    }
     
 
     // // INSERT AREA
