@@ -19,13 +19,14 @@ class Admin extends CI_Controller {
 
 	public function getDataKaryawan()
 	{
-		$data['karyawan'] = $this->Model_admin->m_getKaryawan();
+		$data['karyawan'] = $this->Model_admin->m_getDataKaryawan();
 		$this->load->view('data_karyawan',$data);
 	}
 
 	public function getDataJabatan()
 	{
-		$this->load->view('data_jabatan');
+		$data['jabatan'] = $this->Model_admin->m_getDataJabatan();
+		$this->load->view('data_jabatan',$data);
 	}
 
 	public function getDataGaji()

@@ -54,95 +54,19 @@ div.dataTables_paginate{
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Kepala PPSI</td>
-                  <td style="text-align:center;">5 Tahun</td>
-                  <td style="text-align:center;">3 Tahun</td>
-                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Programmer WebApps (FullStack)</td>
-                  <td style="text-align:center;">2 Tahun</td>
-                  <td style="text-align:center;">-</td>
-                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Programmer Mobile (FullStack)</td>
-                  <td style="text-align:center;">2 Tahun</td>
-                  <td style="text-align:center;">-</td>
-                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Programmer Front End</td>
-                  <td style="text-align:center;">2 Tahun</td>
-                  <td style="text-align:center;">-</td>
-                  <td style="text-align:center;">Pusat Pengembangan Sistem Informasi (PPSI)</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Kepala BAA</td>
-                  <td style="text-align:center;">5 Tahun</td>
-                  <td style="text-align:center;">3 Tahun</td>
-                  <td style="text-align:center;">Biro Administrasi Akademik</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Staff BAA</td>
-                  <td style="text-align:center;">2 Tahun</td>
-                  <td style="text-align:center;">-</td>
-                  <td style="text-align:center;">Biro Administrasi Akademik</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Koordinator Laboran</td>
-                  <td style="text-align:center;">5 Tahun</td>
-                  <td style="text-align:center;">3 Tahun</td>
-                  <td style="text-align:center;">Laboratorium Komputer</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Laboran</td>
-                  <td style="text-align:center;">2 Tahun</td>
-                  <td style="text-align:center;">-</td>
-                  <td style="text-align:center;">Laboratorium Komputer</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                
+                  <?php foreach($jabatan->result() as $jbt){ ?>
+                    <tr>
+                      <td><?php echo $jbt->nama_jabatan; ?></td>
+                      <td style="text-align:center;"><?php echo $jbt->masa_jabatan.' Tahun';; ?></td>
+                      <td style="text-align:center;"><?php echo $jbt->masa_promosi.' Tahun'; ?></td>
+                      <td style="text-align:center;"><?php echo $jbt->nama_divisi ?></td>
+                      <td style="text-align:center;">
+                        <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                        <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                        <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                      </td>
+                    </tr>
+                  <?php } ?>
                 </tbody>
               </table>
             </div>

@@ -14,8 +14,12 @@ class Model_admin extends CI_Model {
     // }
 
     // SELECT AREA
-    public function m_getKaryawan(){
+    public function m_getDataKaryawan(){
 		return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.nama_divisi,c.nama_jabatan,a.tanggal_masuk FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id");
+    }
+
+    public function m_getDataJabatan(){
+		return $this->db->query("SELECT a.nama_jabatan,a.masa_jabatan,a.masa_promosi,b.nama_divisi FROM jabatan a join divisi b on a.id_divisi=b.id");
     }
     
 
