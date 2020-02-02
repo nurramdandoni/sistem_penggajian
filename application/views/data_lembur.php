@@ -20,12 +20,12 @@ div.dataTables_paginate{
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Bonus</h1>
+            <h1>Data Lembur</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Data Master</a></li>
-              <li class="breadcrumb-item active">Data Bonus</li>
+              <li class="breadcrumb-item active">Data Lembur</li>
             </ol>
           </div>
         </div>
@@ -39,24 +39,26 @@ div.dataTables_paginate{
           <div class="card">
             <div class="card-header">
               <!-- <h1 class="card-title">Data Karyawan</h1> -->
-              <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Bonus</a>
+              <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Lembur</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th style="text-align:center;">Nama Bonus</th>
-                  <th style="text-align:center;">Bonus (Rp.)</th>
+                  <th style="text-align:center;">Jenis Lembur</th>
+                  <th style="text-align:center;">Satuan</th>
+                  <th style="text-align:center;">Insentif (Rp.)</th>
                   <th style="text-align:center;">Keterangan</th>
                   <th style="text-align:center;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>Bonus Kehadiran</td>
-                  <td>200.000</td>
-                  <td>Reward Bulanan Tanpa Telat</td>
+                  <td>Lembur Hari Normal Shift 1</td>
+                  <td style="text-align:center;">per Jam</td>
+                  <td>10.000</td>
+                  <td>Sistem Flat</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -64,9 +66,10 @@ div.dataTables_paginate{
                   </td>
                 </tr>
                 <tr>
-                  <td>Bonus Kehadiran Harian</td>
-                  <td>8.000</td>
-                  <td>Reward Harian Tanpa Telat</td>
+                  <td>Lembur Hari Normal Shift 2</td>
+                  <td style="text-align:center;">per Jam</td>
+                  <td>10.000</td>
+                  <td>Sistem Flat</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -74,9 +77,32 @@ div.dataTables_paginate{
                   </td>
                 </tr>
                 <tr>
-                  <td>Bonus Kinerja</td>
-                  <td>300.000</td>
-                  <td>Berdasarkan Laporan Atasan Langsung</td>
+                  <td>Lembur Hari Normal Shift 3</td>
+                  <td style="text-align:center;">per Jam</td>
+                  <td>10.000</td>
+                  <td>Sistem Flat</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lembur Hari Normal All Shift</td>
+                  <td style="text-align:center;">per Jam ( < 5 Jam )</td>
+                  <td>10.000</td>
+                  <td>Sistem Relative</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Lembur Hari Normal All Shift</td>
+                  <td style="text-align:center;">per Jam ( >= 5 Jam )</td>
+                  <td>15.000</td>
+                  <td>Sistem Relative</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>

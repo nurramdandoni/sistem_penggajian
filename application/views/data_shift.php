@@ -20,12 +20,12 @@ div.dataTables_paginate{
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Bonus</h1>
+            <h1>Data Shift</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Data Master</a></li>
-              <li class="breadcrumb-item active">Data Bonus</li>
+              <li class="breadcrumb-item active">Data Shift</li>
             </ol>
           </div>
         </div>
@@ -39,24 +39,23 @@ div.dataTables_paginate{
           <div class="card">
             <div class="card-header">
               <!-- <h1 class="card-title">Data Karyawan</h1> -->
-              <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Bonus</a>
+              <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button">+ Tambah Data Shift</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-hover">
-                <thead>
+              <thead>
                 <tr>
-                  <th style="text-align:center;">Nama Bonus</th>
-                  <th style="text-align:center;">Bonus (Rp.)</th>
+                  <th style="text-align:center;">Jenis Shift</th>
+                  <th style="text-align:center;">Jam Kerja</th>
                   <th style="text-align:center;">Keterangan</th>
                   <th style="text-align:center;">Aksi</th>
                 </tr>
                 </thead>
-                <tbody>
                 <tr>
-                  <td>Bonus Kehadiran</td>
-                  <td>200.000</td>
-                  <td>Reward Bulanan Tanpa Telat</td>
+                  <td>Shift 1</td>
+                  <td style="text-align:center;">08.00 - 16.00 WIB</td>
+                  <td>Shift Jam Kerja Normal (Senin - Jumat)</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -64,9 +63,9 @@ div.dataTables_paginate{
                   </td>
                 </tr>
                 <tr>
-                  <td>Bonus Kehadiran Harian</td>
-                  <td>8.000</td>
-                  <td>Reward Harian Tanpa Telat</td>
+                  <td>Shift 2</td>
+                  <td style="text-align:center;">16.00 - 24.00 WIB</td>
+                  <td>Shift Jam Kerja Normal (Senin - Jumat)</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
@@ -74,9 +73,39 @@ div.dataTables_paginate{
                   </td>
                 </tr>
                 <tr>
-                  <td>Bonus Kinerja</td>
-                  <td>300.000</td>
-                  <td>Berdasarkan Laporan Atasan Langsung</td>
+                  <td>Shift 3</td>
+                  <td style="text-align:center;">24.00 - 08.00 WIB</td>
+                  <td>Shift Jam Kerja Normal (Senin - Jumat)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Shift Piket 1</td>
+                  <td style="text-align:center;">08.00 - 16.00 WIB</td>
+                  <td>Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Shift Piket 2</td>
+                  <td style="text-align:center;">16.00 - 24.00 WIB</td>
+                  <td>Shift 2 diluar Jam Kerja Normal (Sabtu - Minggu)</td>
+                  <td style="text-align:center;">
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                    <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Shift Piket 3</td>
+                  <td style="text-align:center;">24.00 - 08.00 WIB</td>
+                  <td>Shift 3 diluar Jam Kerja Normal (Sabtu - Minggu)</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>

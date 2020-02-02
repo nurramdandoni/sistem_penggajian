@@ -55,7 +55,7 @@ div.dataTables_paginate{
                 <tbody>
                 <tr>
                   <td>Kepala PPSI</td>
-                  <td style="text-align:center;">3.200.000</td>
+                  <td>3.200.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -65,7 +65,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Programmer WebApps (FullStack)</td>
-                  <td style="text-align:center;">2.400.000</td>
+                  <td>2.400.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -75,7 +75,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Programmer Mobile (FullStack)</td>
-                  <td style="text-align:center;">2.600.000</td>
+                  <td>2.600.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -85,7 +85,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Programmer Front End</td>
-                  <td style="text-align:center;">2.500.000</td>
+                  <td>2.500.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -95,7 +95,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Kepala BAA</td>
-                  <td style="text-align:center;">3.200.000</td>
+                  <td>3.200.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -105,7 +105,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Staff BAA</td>
-                  <td style="text-align:center;">2.400.000</td>
+                  <td>2.400.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -115,7 +115,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Koordinator Laboran</td>
-                  <td style="text-align:center;">3.000.000</td>
+                  <td>3.000.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
@@ -125,7 +125,7 @@ div.dataTables_paginate{
                 </tr>
                 <tr>
                   <td>Laboran</td>
-                  <td style="text-align:center;">2.200.000</td>
+                  <td>2.200.000</td>
                   <td style="text-align:center;">-</td>
                   <td style="text-align:center;">
                     <a type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
