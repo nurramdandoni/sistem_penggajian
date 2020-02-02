@@ -47,42 +47,24 @@ div.dataTables_paginate{
                 <thead>
                 <tr>
                   <th style="text-align:center;">Nama Bonus</th>
-                  <th style="text-align:center;">Bonus (Rp.)</th>
+                  <th style="text-align:center;">Insentif (Rp.)</th>
                   <th style="text-align:center;">Keterangan</th>
                   <th style="text-align:center;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>Bonus Kehadiran</td>
-                  <td>200.000</td>
-                  <td>Reward Bulanan Tanpa Telat</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Bonus Kehadiran Harian</td>
-                  <td>8.000</td>
-                  <td>Reward Harian Tanpa Telat</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Bonus Kinerja</td>
-                  <td>300.000</td>
-                  <td>Berdasarkan Laporan Atasan Langsung</td>
-                  <td style="text-align:center;">
-                    <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                    <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
-                    <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
-                  </td>
-                </tr>
+                  <?php foreach($bonus->result() as $bns){ ?>
+                    <tr>
+                      <td><?php echo $bns->nama_bonus; ?></td>
+                      <td><?php echo $bns->insentif; ?></td>
+                      <td><?php echo $bns->keterangan; ?></td>
+                      <td style="text-align:center;">
+                        <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
+                        <a data-toggle="tooltip" title="Edit" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-edit"></i></a>
+                        <a data-toggle="tooltip" title="Hapus" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-trash-b"></i></a>
+                      </td>
+                    </tr>
+                  <?php } ?>
                 
                 </tbody>
               </table>

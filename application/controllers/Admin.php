@@ -37,7 +37,8 @@ class Admin extends CI_Controller {
 
 	public function getDataBonus()
 	{
-		$this->load->view('data_bonus');
+		$data['bonus'] = $this->Model_admin->m_getDataBonus();
+		$this->load->view('data_bonus',$data);
 	}
 
 	public function getDataLembur()

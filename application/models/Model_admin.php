@@ -19,11 +19,15 @@ class Model_admin extends CI_Model {
     }
 
     public function m_getDataJabatan(){
-		return $this->db->query("SELECT a.nama_jabatan,a.masa_jabatan,a.masa_promosi,b.nama_divisi FROM jabatan a join divisi b on a.id_divisi=b.id");
+		return $this->db->query("SELECT a.id,a.nama_jabatan,a.masa_jabatan,a.masa_promosi,b.nama_divisi FROM jabatan a join divisi b on a.id_divisi=b.id");
     }
 
     public function m_getDataGaji(){
-		return $this->db->query("SELECT b.nama_jabatan,a.gaji,a.keterangan FROM gaji a join jabatan b on a.id_jabatan=b.id");
+		return $this->db->query("SELECT a.id,b.nama_jabatan,a.gaji,a.keterangan FROM gaji a join jabatan b on a.id_jabatan=b.id");
+    }
+
+    public function m_getDataBonus(){
+		return $this->db->query("SELECT a.id,a.nama_bonus,a.insentif,a.keterangan FROM bonus a");
     }
     
 
