@@ -96,15 +96,9 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
+                <a href="<?php echo base_url();?>admin/exportimportAbsensi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Export Data Absensi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?php echo base_url();?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Import Data Absensi</p>
+                  <p>Export/ Import</p>
                 </a>
               </li>
             </ul>

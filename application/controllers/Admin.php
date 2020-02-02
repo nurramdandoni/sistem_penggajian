@@ -41,4 +41,9 @@ class Admin extends CI_Controller {
 	{
 		$this->load->view('data_absensi');
 	}
+
+	public function exportimportAbsensi()
+	{
+		$this->load->view('export_import_absensi');
+	}
 }
