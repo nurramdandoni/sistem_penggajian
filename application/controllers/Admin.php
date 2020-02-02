@@ -31,7 +31,8 @@ class Admin extends CI_Controller {
 
 	public function getDataGaji()
 	{
-		$this->load->view('data_gaji');
+		$data['gaji'] = $this->Model_admin->m_getDataGaji();
+		$this->load->view('data_gaji',$data);
 	}
 
 	public function getDataBonus()
