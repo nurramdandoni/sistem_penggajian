@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
 		// $this->load->library('pdf');
 		// $this->load->library('ciqrcode'); //pemanggilan library QR CODE');
 		$this->load->model('Model_admin');
+		$this->load->library('pdf');
 	}
 
 	public function index()
@@ -355,6 +356,11 @@ class Admin extends CI_Controller {
 	public function getDataInvoice()
 	{
 		$this->load->view('data_invoice');
+	}
+
+	public function cetakInvoice()
+	{
+		$this->load->view('cetak_invoice_gaji');
 	}
 
 	public function getLaporanInvoice()
