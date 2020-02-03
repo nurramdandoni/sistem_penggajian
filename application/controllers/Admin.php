@@ -336,6 +336,76 @@ class Admin extends CI_Controller {
 		$this->load->view('data_lembur',$data);
 	}
 
+	public function insertLembur(){
+		$jenis_lembur = $this->input->post('jenis_lembur');
+		$satuan = $this->input->post('satuan');
+		$insentif = $this->input->post('insentif');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'nama_lembur' => $jenis_lembur,
+			'satuan' => $satuan,
+			'insentif' => $insentif,
+			'keterangan' => $keterangan
+		);
+
+		$aksi = $this->Model_admin->insertdataArray($data,'lembur');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function updateLembur(){
+		$id_lembur = $this->input->post('id_lembur');
+		$jenis_lembur = $this->input->post('jenis_lembur');
+		$satuan = $this->input->post('satuan');
+		$insentif = $this->input->post('insentif');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'nama_lembur' => $jenis_lembur,
+			'satuan' => $satuan,
+			'insentif' => $insentif,
+			'keterangan' => $keterangan
+		);
+
+		$where = array(
+			'id' => $id_lembur
+		);
+
+		$aksi = $this->Model_admin->updatedataArray($where, $data, 'lembur');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function deleteLembur(){
+		$where = $this->uri->segment(3);
+		$this->Model_admin->delete($where,'id','lembur');
+		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
+		exit();
+	}
+
 	public function getDataShift()
 	{
 		$data['shift'] = $this->Model_admin->getDataShift();

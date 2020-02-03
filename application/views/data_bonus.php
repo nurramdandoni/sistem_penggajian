@@ -100,7 +100,7 @@ div.dataTables_paginate{
           </div>
           <div class="form-group">
             <label for="iinsentif">Insentif (Rp.)</label>
-            <input type="number" pattern="[0-9]" class="form-control" id="iinsentif" name="insentif" placeholder="Gaji (Tanpa Titik dan Koma)" value="0">
+            <input type="number" pattern="[0-9]" class="form-control" id="iinsentif" name="insentif" placeholder="Insentif (Tanpa Titik dan Koma)" value="0">
           </div>
           <div class="form-group">
             <label for="iketerangan_bonus">Keterangan</label>
