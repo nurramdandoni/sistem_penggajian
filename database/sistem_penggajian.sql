@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Feb 2020 pada 12.10
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.2.26
+-- Generation Time: 04 Feb 2020 pada 00.47
+-- Versi Server: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -32,6 +30,7 @@ CREATE TABLE `absensi` (
   `id` int(11) NOT NULL,
   `id_karyawan` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
+  `jenis_hari` enum('0','1') NOT NULL,
   `id_shift` int(11) NOT NULL,
   `jam_masuk` datetime NOT NULL,
   `jam_keluar` datetime NOT NULL,
@@ -45,9 +44,9 @@ CREATE TABLE `absensi` (
 -- Dumping data untuk tabel `absensi`
 --
 
-INSERT INTO `absensi` (`id`, `id_karyawan`, `tanggal`, `id_shift`, `jam_masuk`, `jam_keluar`, `total_jam_lembur`, `total_insentif_lembur`, `status_terlambat`, `insentif_harian`) VALUES
-(1, 'STTB1234', '2020-02-03', 1, '2020-02-03 08:00:00', '2020-02-03 17:00:00', 1, 10000, 'tidak', 8000),
-(2, 'STTB1235', '2020-02-03', 1, '2020-02-03 08:00:00', '2020-02-03 16:00:00', 3, 30000, 'tidak', 8000);
+INSERT INTO `absensi` (`id`, `id_karyawan`, `tanggal`, `jenis_hari`, `id_shift`, `jam_masuk`, `jam_keluar`, `total_jam_lembur`, `total_insentif_lembur`, `status_terlambat`, `insentif_harian`) VALUES
+(1, 'STTB1234', '2020-01-25', '0', 1, '2020-02-03 08:00:00', '2020-02-03 17:00:00', 1, 10000, 'tidak', 8000),
+(2, 'STTB1235', '2020-02-03', '0', 1, '2020-02-03 08:00:00', '2020-02-03 16:00:00', 3, 30000, 'tidak', 8000);
 
 -- --------------------------------------------------------
 
@@ -123,6 +122,27 @@ INSERT INTO `gaji` (`id`, `id_jabatan`, `gaji`, `keterangan`) VALUES
 (9, 9, 2500000, 'Fresh Graduate'),
 (11, 8, 2400000, 'Fresh Graduate'),
 (13, 11, 2400000, 'Fresh Graduate*');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `id` int(11) NOT NULL,
+  `id_karyawan` varchar(255) NOT NULL,
+  `range_awal` date NOT NULL,
+  `range_akhir` date NOT NULL,
+  `gapok` double(20,0) NOT NULL,
+  `jumlah_hadir_no_telat` int(11) NOT NULL,
+  `jumlah_hadir_telat` int(11) NOT NULL,
+  `id_bonus` text NOT NULL,
+  `total_bonus` double(20,0) NOT NULL,
+  `id_lembur` text NOT NULL,
+  `total_lembur` double(20,0) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -216,6 +236,7 @@ INSERT INTO `lembur` (`id`, `id_shift`, `nama_lembur`, `satuan`, `insentif`, `ke
 
 CREATE TABLE `shift` (
   `id` int(11) NOT NULL,
+  `jenis_hari` enum('0','1') NOT NULL,
   `nama_shift` varchar(100) NOT NULL,
   `jam_awal` time NOT NULL,
   `jam_akhir` time NOT NULL,
@@ -226,13 +247,13 @@ CREATE TABLE `shift` (
 -- Dumping data untuk tabel `shift`
 --
 
-INSERT INTO `shift` (`id`, `nama_shift`, `jam_awal`, `jam_akhir`, `keterangan`) VALUES
-(1, 'Shift 1', '08:00:00', '16:00:00', 'Shift Jam Kerja Normal (Senin - Jumat)'),
-(2, 'Shift 2', '16:00:00', '24:00:00', 'Shift Jam Kerja Normal (Senin - Jumat)'),
-(3, 'Shift 3', '24:00:00', '08:00:00', 'Shift Jam Kerja Normal (Senin - Jumat)'),
-(4, 'Shift Piket 1', '08:00:00', '16:00:00', 'Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)'),
-(5, 'Shift Piket 2', '16:00:00', '24:00:00', 'Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)'),
-(6, 'Shift Piket 3', '24:00:00', '08:00:00', 'Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)');
+INSERT INTO `shift` (`id`, `jenis_hari`, `nama_shift`, `jam_awal`, `jam_akhir`, `keterangan`) VALUES
+(1, '0', 'Shift 1', '08:00:00', '16:00:00', 'Shift Jam Kerja Normal (Senin - Jumat)'),
+(2, '0', 'Shift 2', '16:00:00', '24:00:00', 'Shift Jam Kerja Normal (Senin - Jumat)'),
+(3, '0', 'Shift 3', '24:00:00', '08:00:00', 'Shift Jam Kerja Normal (Senin - Jumat)'),
+(4, '1', 'Shift Piket 1', '08:00:00', '16:00:00', 'Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)'),
+(5, '1', 'Shift Piket 2', '16:00:00', '24:00:00', 'Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)'),
+(6, '1', 'Shift Piket 3', '24:00:00', '08:00:00', 'Shift 1 diluar Jam Kerja Normal (Sabtu - Minggu)');
 
 -- --------------------------------------------------------
 
@@ -259,7 +280,7 @@ INSERT INTO `user` (`id`, `id_karyawan`, `username`, `password`) VALUES
 --
 
 --
--- Indeks untuk tabel `absensi`
+-- Indexes for table `absensi`
 --
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`),
@@ -267,26 +288,32 @@ ALTER TABLE `absensi`
   ADD KEY `id_shift` (`id_shift`);
 
 --
--- Indeks untuk tabel `bonus`
+-- Indexes for table `bonus`
 --
 ALTER TABLE `bonus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `divisi`
+-- Indexes for table `divisi`
 --
 ALTER TABLE `divisi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `gaji`
+-- Indexes for table `gaji`
 --
 ALTER TABLE `gaji`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`),
@@ -294,94 +321,25 @@ ALTER TABLE `jabatan`
   ADD KEY `id` (`id`);
 
 --
--- Indeks untuk tabel `karyawan`
---
-ALTER TABLE `karyawan`
-  ADD UNIQUE KEY `NIK` (`NIK`),
-  ADD KEY `id_divisi` (`id_divisi`),
-  ADD KEY `id_jabatan` (`id_jabatan`);
-
---
--- Indeks untuk tabel `lembur`
---
-ALTER TABLE `lembur`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `shift`
+-- Indexes for table `shift`
 --
 ALTER TABLE `shift`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `absensi`
+-- AUTO_INCREMENT for table `invoice`
 --
-ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+ALTER TABLE `invoice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT untuk tabel `bonus`
---
-ALTER TABLE `bonus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `divisi`
---
-ALTER TABLE `divisi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT untuk tabel `gaji`
---
-ALTER TABLE `gaji`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT untuk tabel `jabatan`
---
-ALTER TABLE `jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT untuk tabel `lembur`
---
-ALTER TABLE `lembur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `shift`
+-- AUTO_INCREMENT for table `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT untuk tabel `user`
---
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `jabatan`
---
-ALTER TABLE `jabatan`
-  ADD CONSTRAINT `jabatan_ibfk_1` FOREIGN KEY (`id_divisi`) REFERENCES `divisi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
