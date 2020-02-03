@@ -63,9 +63,9 @@ div.dataTables_paginate{
                       <td style="text-align:center;"><?php echo $kry->nama_jabatan; ?></td>
                       <td style="text-align:center;"><?php echo $kry->tanggal_masuk; ?></td>
                       <td style="text-align:center;">
-                      <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                      <a data-toggle="tooltip" title="Export" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion-ios-download"></i></a>
-                      <a data-toggle="tooltip" title="Import" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion-ios-upload"></i></a>
+                      <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin/lihatAbsensi/<?php echo $kry->NIK; ?>" role="button"><i class="ion ion-eye"></i></a>
+                      <!-- <a data-toggle="tooltip" title="Export" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion-ios-download"></i></a> -->
+                      <!-- <a data-toggle="tooltip" title="Import" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion-ios-upload"></i></a> -->
                       </td>
                     </tr>
                   <?php } ?>

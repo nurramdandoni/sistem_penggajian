@@ -112,7 +112,7 @@ div.dataTables_paginate{
                       <td style="text-align:center;"><?php echo $this->session->userdata('awalRange')." - ".$this->session->userdata('akhirRange'); ?></td>
                       <td style="text-align:center;">
                         <a data-toggle="tooltip" title="Lihat" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion ion-eye"></i></a>
-                        <a data-toggle="tooltip" title="Print" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion-printer"></i></a>
+                        <!-- <a data-toggle="tooltip" title="Print" type="button" class="btn btn-success" href="<?php echo base_url()?>admin" role="button"><i class="ion-printer"></i></a> -->
                       </td>
                     </tr>
                   <?php } ?>
