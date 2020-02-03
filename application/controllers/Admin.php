@@ -184,8 +184,76 @@ class Admin extends CI_Controller {
 
 	public function getDataGaji()
 	{
+		$data['jabatan'] = $this->Model_admin->m_getDataJabatan();
 		$data['gaji'] = $this->Model_admin->m_getDataGaji();
 		$this->load->view('data_gaji',$data);
+	}
+
+	public function insertGaji(){
+		$id_jabatan = $this->input->post('id_jabatan');
+		$gaji = $this->input->post('gaji_jabatan');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'id_jabatan' => $id_jabatan,
+			'gaji' => $gaji,
+			'keterangan' => $keterangan
+		);
+
+		$aksi = $this->Model_admin->insertdataArray($data,'gaji');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function updateGaji(){
+		$id_gaji = $this->input->post('id_gaji');
+		$id_jabatan = $this->input->post('id_jabatan');
+		$gaji = $this->input->post('gaji_jabatan');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'id_jabatan' => $id_jabatan,
+			'gaji' => $gaji,
+			'keterangan' => $keterangan
+		);
+
+		$where = array(
+			'id' => $id_gaji
+		);
+
+		$aksi = $this->Model_admin->updatedataArray($where, $data, 'gaji');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+		
+	public function deleteGaji(){
+		$where = $this->uri->segment(3);
+		$this->Model_admin->delete($where,'id','gaji');
+		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
+		exit();
 	}
 
 	public function getDataBonus()

@@ -31,7 +31,7 @@ class Model_admin extends CI_Model {
     }
 
     public function m_getDataGaji(){
-		return $this->db->query("SELECT a.id,b.nama_jabatan,a.gaji,a.keterangan FROM gaji a join jabatan b on a.id_jabatan=b.id");
+		return $this->db->query("SELECT a.id,a.id_jabatan as id_jabatan,b.nama_jabatan,a.gaji,a.keterangan FROM gaji a join jabatan b on a.id_jabatan=b.id");
     }
 
     public function m_getDataBonus(){
