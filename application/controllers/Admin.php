@@ -500,16 +500,23 @@ class Admin extends CI_Controller {
 
 	public function getDataInvoice()
 	{
-		$this->load->view('data_invoice');
+		$from = $this->session->userdata('awalRange');
+		$to = $this->session->userdata('akhirRange');
+		$data['karyawan'] = $this->Model_admin->m_getDataKaryawanJabs($from,$to);
+		$this->load->view('data_invoice',$data);
 	}
 
 	public function setRangeInvoice()
 	{
 		$awal = $this->input->post('tanggalAwal');
 		$akhir = $this->input->post('tanggalAkhir');
+
+		$from = $this->session->userdata('awalRange');
+		$to = $this->session->userdata('akhirRange');
+		$data['karyawan'] = $this->Model_admin->m_getDataKaryawanJabs($from,$to);
 		$this->session->set_userdata('awalRange', $awal);
 		$this->session->set_userdata('akhirRange', $akhir);
-		$this->load->view('data_invoice');
+		$this->load->view('data_invoice',$data);
 	}
 
 	public function cetakInvoice()

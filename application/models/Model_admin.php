@@ -18,6 +18,10 @@ class Model_admin extends CI_Model {
 		return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id");
     }
 
+    public function m_getDataKaryawanJabs($from,$to){
+        return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk,e.id_shift,e.insentif_harian,e.jam_masuk,e.jam_keluar,e.status_terlambat,e.tanggal,e.total_jam_lembur,e.total_insentif_lembur FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id join absensi e on a.NIK=e.id_karyawan where e.tanggal BETWEEN '$from' AND '$to'");
+    }
+
     public function lastNIKKaryawan(){
 		return $this->db->query("SELECT a.NIK FROM karyawan a ORDER by a.NIK DESC LIMIT 1");
     }
