@@ -39,10 +39,10 @@ class Model_admin extends CI_Model {
     }
 
     public function m_getDataLembur(){
-		return $this->db->query("SELECT a.id,a.nama_lembur,a.satuan,a.insentif,a.keterangan FROM lembur a");
+		return $this->db->query("SELECT a.id,b.id as id_shift,b.nama_shift,a.nama_lembur,a.satuan,a.insentif,a.keterangan FROM lembur a join shift b on a.id_shift=b.id");
     }
 
-    public function getDataShift(){
+    public function m_getDataShift(){
 		return $this->db->query("SELECT a.id,a.nama_shift,a.jam_awal,a.jam_akhir,a.keterangan FROM shift a");
     }
     

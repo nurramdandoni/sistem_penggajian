@@ -46,6 +46,7 @@ div.dataTables_paginate{
               <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
+                  <th style="text-align:center;">Jenis Shift</th>
                   <th style="text-align:center;">Jenis Lembur</th>
                   <th style="text-align:center;">Satuan</th>
                   <th style="text-align:center;">Insentif (Rp.)</th>
@@ -56,6 +57,7 @@ div.dataTables_paginate{
                 <tbody>
                   <?php foreach($lembur->result() as $lmbr){ ?>
                     <tr>
+                      <td><?php echo $lmbr->nama_shift; ?></td>
                       <td><?php echo $lmbr->nama_lembur; ?></td>
                       <td style="text-align:center;"><?php echo $lmbr->satuan; ?></td>
                       <td><?php echo $lmbr->insentif; ?></td>
@@ -95,6 +97,15 @@ div.dataTables_paginate{
       </div>
       <form action="<?php echo base_url()?>admin/insertLembur" method="POST">
         <div class="modal-body">
+        <div class="form-group">
+            <label for="id_shift">Jenis Shift</label>
+            <!-- <input type="text" class="form-control" id="id_divisi" placeholder="Divisi"> -->
+            <select class="form-control" id="id_shift" name="id_shift">
+              <?php foreach($shift->result() as $shf){ ?>
+                <option value="<?php echo $shf->id; ?>"><?php echo $shf->nama_shift; ?></option>
+              <?php } ?>
+            </select>
+          </div>
           <div class="form-group">
             <label for="ijenis_lembur">Jenis Lembur</label>
             <input type="text" class="form-control" id="ijenis_lembur" name="jenis_lembur" placeholder="Jenis Lembur">
@@ -135,6 +146,16 @@ div.dataTables_paginate{
       </div>
       <form action="<?php echo base_url()?>admin/updateLembur" method="POST">
         <div class="modal-body">
+        <div class="form-group">
+            <label for="id_shift">Jenis Shift</label>
+            <!-- <input type="text" class="form-control" id="id_divisi" placeholder="Divisi"> -->
+            <select class="form-control" id="id_shift" name="id_shift">
+            <option value="<?php echo $lmbr->id_shift; ?>"><?php echo $lmbr->nama_shift; ?></option>
+              <?php foreach($shift->result() as $shf){ ?>
+                <option value="<?php echo $shf->id; ?>"><?php echo $shf->nama_shift; ?></option>
+              <?php } ?>
+            </select>
+          </div>
           <div class="form-group">
           <input type="hidden" class="form-control" id="id_lembur" name="id_lembur" placeholder="" value="<?php echo $lmbr->id; ?>">
             <label for="ijenis_lembur">Jenis Lembur</label>

@@ -96,7 +96,7 @@ div.dataTables_paginate{
         <div class="modal-body">
           <div class="form-group">
             <label for="inama_bonus">Nama Bonus</label>
-            <input type="text" class="form-control" id="inama_bonus" name="nama_bonus" placeholder="Keterangan">
+            <input type="text" class="form-control" id="inama_bonus" name="nama_bonus" placeholder="Nama Bonus">
           </div>
           <div class="form-group">
             <label for="iinsentif">Insentif (Rp.)</label>

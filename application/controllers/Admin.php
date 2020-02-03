@@ -332,17 +332,20 @@ class Admin extends CI_Controller {
 
 	public function getDataLembur()
 	{
+		$data['shift'] = $this->Model_admin->m_getDataShift();
 		$data['lembur'] = $this->Model_admin->m_getDataLembur();
 		$this->load->view('data_lembur',$data);
 	}
 
 	public function insertLembur(){
+		$id_shift = $this->input->post('id_shift');
 		$jenis_lembur = $this->input->post('jenis_lembur');
 		$satuan = $this->input->post('satuan');
 		$insentif = $this->input->post('insentif');
 		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
+			'id_shift' => $id_shift,
 			'nama_lembur' => $jenis_lembur,
 			'satuan' => $satuan,
 			'insentif' => $insentif,
@@ -367,12 +370,14 @@ class Admin extends CI_Controller {
 
 	public function updateLembur(){
 		$id_lembur = $this->input->post('id_lembur');
+		$id_shift = $this->input->post('id_shift');
 		$jenis_lembur = $this->input->post('jenis_lembur');
 		$satuan = $this->input->post('satuan');
 		$insentif = $this->input->post('insentif');
 		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
+			'id_shift' => $id_shift,
 			'nama_lembur' => $jenis_lembur,
 			'satuan' => $satuan,
 			'insentif' => $insentif,
@@ -408,8 +413,78 @@ class Admin extends CI_Controller {
 
 	public function getDataShift()
 	{
-		$data['shift'] = $this->Model_admin->getDataShift();
+		$data['shift'] = $this->Model_admin->m_getDataShift();
 		$this->load->view('data_shift',$data);
+	}
+
+	public function insertShift(){
+		$nama_shift = $this->input->post('nama_shift');
+		$jammasuk = $this->input->post('jammasuk');
+		$jamkeluar = $this->input->post('jamkeluar');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'nama_shift' => $nama_shift,
+			'jam_awal' => $jammasuk,
+			'jam_akhir' => $jamkeluar,
+			'keterangan' => $keterangan
+		);
+
+		$aksi = $this->Model_admin->insertdataArray($data,'shift');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function updateShift(){
+		$id_shift = $this->input->post('id_shift');
+		$nama_shift = $this->input->post('nama_shift');
+		$jammasuk = $this->input->post('jammasuk');
+		$jamkeluar = $this->input->post('jamkeluar');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'nama_shift' => $nama_shift,
+			'jam_awal' => $jammasuk,
+			'jam_akhir' => $jamkeluar,
+			'keterangan' => $keterangan
+		);
+
+		$where = array(
+			'id' => $id_shift
+		);
+
+		$aksi = $this->Model_admin->updatedataArray($where, $data, 'shift');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function deleteShift(){
+		$where = $this->uri->segment(3);
+		$this->Model_admin->delete($where,'id','shift');
+		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
+		exit();
 	}
 
 	public function getDataListAbsensi()
