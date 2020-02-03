@@ -51,14 +51,14 @@ class Admin extends CI_Controller {
 		$aksi = $this->Model_admin->insertdataArray($data,'karyawan');
 		if($aksi){
 
-			print "<script>alert('Data Berhasil Ditambahkan!');</script>";
-			redirect(base_url('admin/getDataKaryawan'));
+			print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
 			exit();
 
 		}else{
 
-			print "<script>alert('Data Gagal Ditambahkan!');</script>";
-			redirect(base_url('admin/getDataKaryawan'));
+			print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
 			exit();
 
 		}
@@ -85,17 +85,24 @@ class Admin extends CI_Controller {
 
 		if($aksi){
 
-			print "<script>alert('Data Berhasil Diperbaharui!');</script>";
-			redirect(base_url('admin/getDataKaryawan'));
+			print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
 			exit();
 
 		}else{
 
-			print "<script>alert('Data Gagal Diperbaharui!');</script>";
-			redirect(base_url('admin/getDataKaryawan'));
+			print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
 			exit();
 
 		}
+	}
+
+	public function deleteKaryawan(){
+		$nik = $this->uri->segment(3);
+		$this->Model_admin->delete($nik,'karyawan');
+		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
+		exit();
 	}
 
 	public function getDataJabatan()

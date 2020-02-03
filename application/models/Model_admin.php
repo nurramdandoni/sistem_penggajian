@@ -59,7 +59,7 @@ class Model_admin extends CI_Model {
     }
     
     // // DELETE AREA
-    // function delete($id){
-	// 	return $this->db->query("");
-	// }
+    function delete($id,$table){
+		return $this->db->query("DELETE FROM ".$table." WHERE NIK='$id'");
+	  }
 }

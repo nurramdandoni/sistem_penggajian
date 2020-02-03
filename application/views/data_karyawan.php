@@ -101,17 +101,17 @@ div.dataTables_paginate{
         <div class="modal-body">
           <div class="form-group">
             <label for="nik">NIK Karyawan</label>
-            <input type="hidden" class="form-control" id="nik" name="nik" placeholder="NIK" value="<?php echo $lastNIK; ?>">
-            <input type="text" class="form-control" id="nikshow" name="nikshow" placeholder="NIK" disabled value="<?php echo $lastNIK; ?>">
+            <input type="hidden" class="form-control" id="inik" name="nik" placeholder="NIK" value="<?php echo $lastNIK; ?>">
+            <input type="text" class="form-control" id="inikshow" name="nikshow" placeholder="NIK" disabled value="<?php echo $lastNIK; ?>">
           </div>
           <div class="form-group">
             <label for="nama_karyawan">Nama Karyawan</label>
-            <input type="text" class="form-control" id="nama_karyawan" name="nama_karyawan" placeholder="Nama Karyawan">
+            <input type="text" class="form-control" id="inama_karyawan" name="nama_karyawan" placeholder="Nama Karyawan">
           </div>
           <div class="form-group">
             <label for="id_divisi">Divisi</label>
             <!-- <input type="text" class="form-control" id="id_divisi" placeholder="Divisi"> -->
-            <select class="form-control" id="id_divisi" name="id_divisi">
+            <select class="form-control" id="iid_divisi" name="id_divisi">
               <?php foreach($divisi->result() as $dv){ ?>
                 <option value="<?php echo $dv->id; ?>"><?php echo $dv->nama_divisi; ?></option>
               <?php } ?>
@@ -120,7 +120,7 @@ div.dataTables_paginate{
           <div class="form-group">
             <label for="id_jabatan">Jabatan</label>
             <!-- <input type="text" class="form-control" id="id_jabatan" placeholder="Jabatan"> -->
-            <select class="form-control" id="id_jabatan" name="id_jabatan">
+            <select class="form-control" id="iid_jabatan" name="id_jabatan">
               <?php foreach($jabatan->result() as $jb){ ?>
                 <option value="<?php echo $jb->id; ?>"><?php echo $jb->nama_jabatan.' - Divisi :'.$jb->nama_divisi; ?></option>
               <?php } ?>
@@ -128,7 +128,7 @@ div.dataTables_paginate{
           </div>
         <div class="form-group">
           <label for="tanggal_rec">Tanggal Recruitment</label>
-          <input type="date" class="form-control" id="tanggal_rec" name="tanggal_rec" placeholder="Tanggal">
+          <input type="date" class="form-control" id="itanggal_rec" name="tanggal_rec" placeholder="Tanggal">
         </div>
         </div>
         <div class="modal-footer">
@@ -207,5 +207,15 @@ $this->load->view("template/footer");
       "searching": true,
       "responsive": true
     });
+  });
+
+  $(document).ready(function(){
+    $('#inik').val();
+    $('#inikshow').val();
+    $('#inama_karyawan').val('');
+    // $('#iid_divisi').val('');
+    // $('#iid_jabatan').val('');
+    $('#itanggal_rec').val('');
+
   });
 </script>
