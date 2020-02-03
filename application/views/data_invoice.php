@@ -33,7 +33,7 @@ div.dataTables_paginate{
     </section>
     <?php
     
-    $submit_range = false;
+    $submit_range = true;
     if($submit_range){ ?>
     <!-- form -->
     <section class="content">
@@ -43,19 +43,19 @@ div.dataTables_paginate{
               <div class="card-header">
                 <div class="card card-primary">
                   <div class="card-header">
-                    <h3 class="card-title">Rentang Tanggal Invoice</h3>
+                    <h3 class="card-title">Rentang Tanggal Invoice (<?php echo $this->session->userdata('awalRange')." - ".$this->session->userdata('akhirRange'); ?>) </h3>
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form role="form">
+                  <form action="<?php echo base_url()?>admin/setRangeInvoice" method="POST">
                     <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Tanggal Awal</label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Tanggal Awal">
+                        <label for="tanggalAwal">Tanggal Awal</label>
+                        <input type="date" class="form-control" id="tanggalAwal" name="tanggalAwal" placeholder="Tanggal Awal">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Tanggal Akhir</label>
-                        <input type="date" class="form-control" id="exampleInputPassword1" placeholder="Tanggal Akhir">
+                        <label for="tanggalAkhir">Tanggal Akhir</label>
+                        <input type="date" class="form-control" id="tanggalAkhir" name="tanggalAkhir" placeholder="Tanggal Akhir">
                       </div>
                     </div>
                     <!-- /.card-body -->

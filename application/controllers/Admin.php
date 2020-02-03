@@ -503,6 +503,15 @@ class Admin extends CI_Controller {
 		$this->load->view('data_invoice');
 	}
 
+	public function setRangeInvoice()
+	{
+		$awal = $this->input->post('tanggalAwal');
+		$akhir = $this->input->post('tanggalAkhir');
+		$this->session->set_userdata('awalRange', $awal);
+		$this->session->set_userdata('akhirRange', $akhir);
+		$this->load->view('data_invoice');
+	}
+
 	public function cetakInvoice()
 	{
 		$this->load->view('cetak_invoice_gaji');
