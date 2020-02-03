@@ -18,6 +18,14 @@ class Model_admin extends CI_Model {
 		return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.nama_divisi,c.nama_jabatan,a.tanggal_masuk FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id");
     }
 
+    public function lastNIKKaryawan(){
+		return $this->db->query("SELECT a.NIK FROM karyawan a ORDER by a.NIK DESC LIMIT 1");
+    }
+
+    public function m_getDataDivisi(){
+		return $this->db->query("SELECT a.id,a.nama_divisi,a.keterangan FROM divisi a");
+    }
+
     public function m_getDataJabatan(){
 		return $this->db->query("SELECT a.id,a.nama_jabatan,a.masa_jabatan,a.masa_promosi,b.nama_divisi FROM jabatan a join divisi b on a.id_divisi=b.id");
     }
@@ -40,15 +48,15 @@ class Model_admin extends CI_Model {
     
 
     // // INSERT AREA
-    // function insertdataArray($data,$table){
-	// 	return $this->db->insert($table, $data); 
-    // }
+    function insertdataArray($data,$table){
+		return $this->db->insert($table, $data); 
+    }
     
     // // UPDATE AREA
-    // public function updatedataArray($where, $data, $tabel){
+    public function updatedataArray($where, $data, $tabel){
 		
-	// 	return $this->db->where($where)->update($tabel, $data);	
-    // }
+		return $this->db->where($where)->update($tabel, $data);	
+    }
     
     // // DELETE AREA
     // function delete($id){

@@ -19,8 +19,83 @@ class Admin extends CI_Controller {
 
 	public function getDataKaryawan()
 	{
+		$data['akhir'] = $this->Model_admin->lastNIKKaryawan();
+		$new = '';
+		foreach($data['akhir']->result() as $ls){
+			$new = substr($ls->NIK,4);
+		}
+		
+
+		$data['lastNIK'] = 'STTB'.($new+1);
 		$data['karyawan'] = $this->Model_admin->m_getDataKaryawan();
+		$data['divisi'] = $this->Model_admin->m_getDataDivisi();
+		$data['jabatan'] = $this->Model_admin->m_getDataJabatan();
 		$this->load->view('data_karyawan',$data);
+	}
+
+	public function insertKaryawan(){
+		$nik = $this->input->post('nik');
+		$nama_karyawan = $this->input->post('nama_karyawan');
+		$id_divisi = $this->input->post('id_divisi');
+		$id_jabatan = $this->input->post('id_jabatan');
+		$tanggal_masuk = $this->input->post('tanggal_rec');
+
+		$data = array(
+			'NIK' => $nik,
+			'nama_karyawan' => $nama_karyawan,
+			'id_divisi' => $id_divisi,
+			'id_jabatan' => $id_jabatan,
+			'tanggal_masuk' => $tanggal_masuk
+		);
+
+		$aksi = $this->Model_admin->insertdataArray($data,'karyawan');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Ditambahkan!');</script>";
+			redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Ditambahkan!');</script>";
+			redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function updateKaryawan(){
+		$nik = $this->input->post('nik');
+		$nama_karyawan = $this->input->post('nama_karyawan');
+		$id_divisi = $this->input->post('id_divisi');
+		$id_jabatan = $this->input->post('id_jabatan');
+		$tanggal_masuk = $this->input->post('tanggal_rec');
+
+		$data = array(
+			'nama_karyawan' => $nama_karyawan,
+			'id_divisi' => $id_divisi,
+			'id_jabatan' => $id_jabatan,
+			'tanggal_masuk' => $tanggal_masuk
+		);
+		$where = array(
+			'NIK' => $nik
+		);
+
+		$aksi = $this->Model_admin->updatedataArray($where, $data, 'karyawan');
+
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Diperbaharui!');</script>";
+			redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Diperbaharui!');</script>";
+			redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
 	}
 
 	public function getDataJabatan()
@@ -55,7 +130,8 @@ class Admin extends CI_Controller {
 
 	public function getDataListAbsensi()
 	{
-		$this->load->view('data_absensi');
+		$data['karyawan'] = $this->Model_admin->m_getDataKaryawan();
+		$this->load->view('data_absensi',$data);
 	}
 
 	public function exportimportAbsensi()
