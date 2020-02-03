@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Feb 2020 pada 09.57
+-- Waktu pembuatan: 03 Feb 2020 pada 12.10
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.2.26
 
@@ -30,16 +30,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `absensi` (
   `id` int(11) NOT NULL,
-  `id_karyawan` int(11) NOT NULL,
+  `id_karyawan` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `id_shift` int(11) NOT NULL,
-  `jam_masuk` time NOT NULL,
-  `jam_keluar` time NOT NULL,
+  `jam_masuk` datetime NOT NULL,
+  `jam_keluar` datetime NOT NULL,
   `total_jam_lembur` int(11) NOT NULL,
-  `total_insentif_lembur` double(20,2) NOT NULL,
+  `total_insentif_lembur` double(20,0) NOT NULL,
   `status_terlambat` enum('ya','tidak') NOT NULL,
-  `insentif_harian` double(20,2) NOT NULL
+  `insentif_harian` double(20,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `absensi`
+--
+
+INSERT INTO `absensi` (`id`, `id_karyawan`, `tanggal`, `id_shift`, `jam_masuk`, `jam_keluar`, `total_jam_lembur`, `total_insentif_lembur`, `status_terlambat`, `insentif_harian`) VALUES
+(1, 'STTB1234', '2020-02-03', 1, '2020-02-03 08:00:00', '2020-02-03 17:00:00', 1, 10000, 'tidak', 8000),
+(2, 'STTB1235', '2020-02-03', 1, '2020-02-03 08:00:00', '2020-02-03 16:00:00', 3, 30000, 'tidak', 8000);
 
 -- --------------------------------------------------------
 
@@ -50,7 +58,7 @@ CREATE TABLE `absensi` (
 CREATE TABLE `bonus` (
   `id` int(11) NOT NULL,
   `nama_bonus` varchar(100) NOT NULL,
-  `insentif` double(20,2) NOT NULL,
+  `insentif` double(20,0) NOT NULL,
   `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -59,9 +67,10 @@ CREATE TABLE `bonus` (
 --
 
 INSERT INTO `bonus` (`id`, `nama_bonus`, `insentif`, `keterangan`) VALUES
-(1, 'Bonus Kehadiran', 200000.00, 'Reward Bulanan Tanpa Telat'),
-(2, 'Bonus Kehadiran Harian', 8000.00, 'Reward Harian Tanpa Telat'),
-(3, 'Bonus Kinerja', 300000.00, 'Berdasarkan Laporan Atasan Langsung');
+(1, 'Bonus Kehadiran', 200000, 'Reward Bulanan Tanpa Telat'),
+(2, 'Bonus Kehadiran Harian', 8000, 'Reward Harian Tanpa Telat'),
+(3, 'Bonus Kinerja', 300000, 'Berdasarkan Laporan Atasan Langsung'),
+(4, 'Karyawan Berprestasi', 500000, 'Penilaian Atasan Langsung');
 
 -- --------------------------------------------------------
 
@@ -82,7 +91,8 @@ CREATE TABLE `divisi` (
 INSERT INTO `divisi` (`id`, `nama_divisi`, `keterangan`) VALUES
 (1, 'Biro Administrasi Akademik', 'Akademik'),
 (2, 'Laboratorium Komputer', 'Labkom'),
-(3, 'Pusat Pengembangan Sistem Informasi (PPSI)', 'PPSI');
+(3, 'Pusat Pengembangan Sistem Informasi (PPSI)', 'PPSI'),
+(4, 'Marketing', 'Marketing');
 
 -- --------------------------------------------------------
 
@@ -93,7 +103,7 @@ INSERT INTO `divisi` (`id`, `nama_divisi`, `keterangan`) VALUES
 CREATE TABLE `gaji` (
   `id` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL,
-  `gaji` double(20,2) NOT NULL,
+  `gaji` double(20,0) NOT NULL,
   `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -102,15 +112,17 @@ CREATE TABLE `gaji` (
 --
 
 INSERT INTO `gaji` (`id`, `id_jabatan`, `gaji`, `keterangan`) VALUES
-(1, 1, 3200000.00, 'Pengalaman 3 Tahun'),
-(2, 2, 3200000.00, 'Pengalaman 3 Tahun'),
-(3, 3, 3000000.00, 'Pengalaman 3 Tahun'),
-(4, 4, 2200000.00, 'Fresh Graduate'),
-(5, 5, 2500000.00, 'Fresh Graduate'),
-(6, 6, 2600000.00, 'Fresh Graduate'),
-(7, 7, 2400000.00, 'Fresh Graduate'),
-(8, 8, 2400000.00, 'Fresh Graduate'),
-(9, 9, 2500000.00, 'Fresh Graduate');
+(1, 1, 3200000, 'Pengalaman 3 Tahun'),
+(2, 2, 3200000, 'Pengalaman 3 Tahun'),
+(3, 3, 3000000, 'Pengalaman 3 Tahun'),
+(4, 4, 2200000, 'Fresh Graduate'),
+(5, 5, 2500000, 'Fresh Graduate'),
+(6, 6, 2600000, 'Fresh Graduate'),
+(7, 7, 2400000, 'Fresh Graduate'),
+(8, 8, 2400000, 'Fresh Graduate'),
+(9, 9, 2500000, 'Fresh Graduate'),
+(11, 8, 2400000, 'Fresh Graduate'),
+(13, 11, 2400000, 'Fresh Graduate*');
 
 -- --------------------------------------------------------
 
@@ -140,7 +152,8 @@ INSERT INTO `jabatan` (`id`, `id_divisi`, `nama_jabatan`, `masa_jabatan`, `masa_
 (6, 3, 'Programmer Mobile (FullStack)', 2, 0, 'Android Studio'),
 (7, 3, 'Programmer WebApps (FullStack)', 2, 0, 'Php, Javascript, HTML, JQuery'),
 (8, 1, 'Staff BAA', 2, 0, 'Staff Akademik'),
-(9, 3, 'System Documentation', 2, 0, 'Dokumentasi System');
+(9, 3, 'System Documentation', 2, 0, 'Dokumentasi System'),
+(11, 4, 'Front Office', 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -161,7 +174,7 @@ CREATE TABLE `karyawan` (
 --
 
 INSERT INTO `karyawan` (`NIK`, `nama_karyawan`, `id_divisi`, `id_jabatan`, `tanggal_masuk`) VALUES
-('STTB1234', 'Doni Nurramdan, A. Md.', 3, 7, '2019-12-01'),
+('STTB1234', 'Doni Nurramdan, A. Md.', 3, 7, '0000-00-00'),
 ('STTB1235', 'Muhammad Faqih, S. Kom.', 3, 6, '2020-02-05'),
 ('STTB1236', 'Cintiya Dewiani Putri, S. Kom.', 3, 6, '2020-01-15'),
 ('STTB1237', 'Titi Widaretna, S. T.', 3, 2, '2017-01-27'),
@@ -179,9 +192,10 @@ INSERT INTO `karyawan` (`NIK`, `nama_karyawan`, `id_divisi`, `id_jabatan`, `tang
 
 CREATE TABLE `lembur` (
   `id` int(11) NOT NULL,
+  `id_shift` int(11) NOT NULL,
   `nama_lembur` varchar(100) NOT NULL,
   `satuan` enum('per jam','per hari') NOT NULL,
-  `insentif` double(20,2) NOT NULL,
+  `insentif` double(20,0) NOT NULL,
   `keterangan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -189,10 +203,10 @@ CREATE TABLE `lembur` (
 -- Dumping data untuk tabel `lembur`
 --
 
-INSERT INTO `lembur` (`id`, `nama_lembur`, `satuan`, `insentif`, `keterangan`) VALUES
-(1, 'Lembur Hari Normal Shift 1', 'per jam', 10000.00, 'Sistem Flat'),
-(2, 'Lembur Hari Normal Shift 2', 'per jam', 12000.00, 'Sistem Flat'),
-(3, 'Lembur Hari Normal Shift 3', 'per jam', 15000.00, 'Sistem Flat');
+INSERT INTO `lembur` (`id`, `id_shift`, `nama_lembur`, `satuan`, `insentif`, `keterangan`) VALUES
+(1, 1, 'Lembur Hari Normal Shift 1', 'per jam', 10000, 'Sistem Flat'),
+(2, 2, 'Lembur Hari Normal Shift 2', 'per jam', 12000, 'Sistem Flat'),
+(3, 3, 'Lembur Hari Normal Shift 3', 'per jam', 15000, 'Sistem Flat');
 
 -- --------------------------------------------------------
 
@@ -228,10 +242,17 @@ INSERT INTO `shift` (`id`, `nama_shift`, `jam_awal`, `jam_akhir`, `keterangan`) 
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `id_karyawan` int(11) NOT NULL,
-  `username` int(11) NOT NULL,
-  `password` int(11) NOT NULL
+  `id_karyawan` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `id_karyawan`, `username`, `password`) VALUES
+(1, 'STTB1234', 'doni92', '6cc5ca674e432cac6507065d2f49a3f5666334f1');
 
 --
 -- Indexes for dumped tables
@@ -306,49 +327,49 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `bonus`
 --
 ALTER TABLE `bonus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `gaji`
 --
 ALTER TABLE `gaji`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `lembur`
 --
 ALTER TABLE `lembur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `shift`
 --
 ALTER TABLE `shift`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
