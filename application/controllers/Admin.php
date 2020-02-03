@@ -261,6 +261,73 @@ class Admin extends CI_Controller {
 		$data['bonus'] = $this->Model_admin->m_getDataBonus();
 		$this->load->view('data_bonus',$data);
 	}
+	
+	public function insertBonus(){
+		$nama_bonus = $this->input->post('nama_bonus');
+		$insentif = $this->input->post('insentif');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'nama_bonus' => $nama_bonus,
+			'insentif' => $insentif,
+			'keterangan' => $keterangan
+		);
+
+		$aksi = $this->Model_admin->insertdataArray($data,'bonus');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function updateBonus(){
+		$id_bonus = $this->input->post('id_bonus');
+		$nama_bonus = $this->input->post('nama_bonus');
+		$insentif = $this->input->post('insentif');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'nama_bonus' => $nama_bonus,
+			'insentif' => $insentif,
+			'keterangan' => $keterangan
+		);
+
+		$where = array(
+			'id' => $id_bonus
+		);
+
+		$aksi = $this->Model_admin->updatedataArray($where, $data, 'bonus');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+		
+	public function deleteBonus(){
+		$where = $this->uri->segment(3);
+		$this->Model_admin->delete($where,'id','bonus');
+		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
+		exit();
+	}
 
 	public function getDataLembur()
 	{
