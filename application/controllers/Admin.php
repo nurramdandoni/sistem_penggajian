@@ -99,16 +99,87 @@ class Admin extends CI_Controller {
 	}
 
 	public function deleteKaryawan(){
-		$nik = $this->uri->segment(3);
-		$this->Model_admin->delete($nik,'karyawan');
+		$where = $this->uri->segment(3);
+		$this->Model_admin->delete($where,'NIK','karyawan');
 		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
 		exit();
 	}
 
 	public function getDataJabatan()
 	{
+		$data['divisi'] = $this->Model_admin->m_getDataDivisi();
 		$data['jabatan'] = $this->Model_admin->m_getDataJabatan();
 		$this->load->view('data_jabatan',$data);
+	}
+
+	public function insertJabatan(){
+		$nama_jabatan = $this->input->post('nama_jabatan');
+		$id_divisi = $this->input->post('id_divisi');
+		$masa_jabatan = $this->input->post('masa_jabatan');
+		$masa_promosi = $this->input->post('promosi_jabatan');
+
+		$data = array(
+			'nama_jabatan' => $nama_jabatan,
+			'id_divisi' => $id_divisi,
+			'masa_jabatan' => $masa_jabatan,
+			'masa_promosi' => $masa_promosi
+		);
+
+		$aksi = $this->Model_admin->insertdataArray($data,'jabatan');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+
+	public function updateJabatan(){
+		$id_jabatan = $this->input->post('id_jabatan');
+		$nama_jabatan = $this->input->post('nama_jabatan');
+		$id_divisi = $this->input->post('id_divisi');
+		$masa_jabatan = $this->input->post('masa_jabatan');
+		$masa_promosi = $this->input->post('promosi_jabatan');
+
+		$data = array(
+			'nama_jabatan' => $nama_jabatan,
+			'id_divisi' => $id_divisi,
+			'masa_jabatan' => $masa_jabatan,
+			'masa_promosi' => $masa_promosi
+		);
+
+		$where = array(
+			'id' => $id_jabatan
+		);
+
+		$aksi = $this->Model_admin->updatedataArray($where, $data, 'jabatan');
+		if($aksi){
+
+			print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}else{
+
+			print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+			// redirect(base_url('admin/getDataKaryawan'));
+			exit();
+
+		}
+	}
+	
+	public function deleteJabatan(){
+		$where = $this->uri->segment(3);
+		$this->Model_admin->delete($where,'id','jabatan');
+		print "<script>alert('Data Berhasil DiHapus!');history.go(-1);</script>";
+		exit();
 	}
 
 	public function getDataGaji()

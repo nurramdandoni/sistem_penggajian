@@ -105,11 +105,11 @@ div.dataTables_paginate{
             <input type="text" class="form-control" id="inikshow" name="nikshow" placeholder="NIK" disabled value="<?php echo $lastNIK; ?>">
           </div>
           <div class="form-group">
-            <label for="nama_karyawan">Nama Karyawan</label>
+            <label for="inama_karyawan">Nama Karyawan</label>
             <input type="text" class="form-control" id="inama_karyawan" name="nama_karyawan" placeholder="Nama Karyawan">
           </div>
           <div class="form-group">
-            <label for="id_divisi">Divisi</label>
+            <label for="iid_divisi">Divisi</label>
             <!-- <input type="text" class="form-control" id="id_divisi" placeholder="Divisi"> -->
             <select class="form-control" id="iid_divisi" name="id_divisi">
               <?php foreach($divisi->result() as $dv){ ?>
@@ -118,7 +118,7 @@ div.dataTables_paginate{
             </select>
           </div>
           <div class="form-group">
-            <label for="id_jabatan">Jabatan</label>
+            <label for="iid_jabatan">Jabatan</label>
             <!-- <input type="text" class="form-control" id="id_jabatan" placeholder="Jabatan"> -->
             <select class="form-control" id="iid_jabatan" name="id_jabatan">
               <?php foreach($jabatan->result() as $jb){ ?>
@@ -127,7 +127,7 @@ div.dataTables_paginate{
             </select>
           </div>
         <div class="form-group">
-          <label for="tanggal_rec">Tanggal Recruitment</label>
+          <label for="itanggal_rec">Tanggal Recruitment</label>
           <input type="date" class="form-control" id="itanggal_rec" name="tanggal_rec" placeholder="Tanggal">
         </div>
         </div>
@@ -167,6 +167,7 @@ div.dataTables_paginate{
             <label for="id_divisi">Divisi</label>
             <!-- <input type="text" class="form-control" id="id_divisi" placeholder="Divisi"> -->
             <select class="form-control" id="id_divisi" name="id_divisi">
+            <option value="<?php echo $kry->id_divisi; ?>"><?php echo $kry->nama_divisi; ?></option>
               <?php foreach($divisi->result() as $dv){ ?>
                 <option value="<?php echo $dv->id; ?>"><?php echo $dv->nama_divisi; ?></option>
               <?php } ?>
@@ -176,6 +177,7 @@ div.dataTables_paginate{
             <label for="id_jabatan">Jabatan</label>
             <!-- <input type="text" class="form-control" id="id_jabatan" placeholder="Jabatan"> -->
             <select class="form-control" id="id_jabatan" name="id_jabatan">
+            <option value="<?php echo $kry->id_jabatan; ?>"><?php echo $kry->nama_jabatan; ?></option>
               <?php foreach($jabatan->result() as $jb){ ?>
                 <option value="<?php echo $jb->id; ?>"><?php echo $jb->nama_jabatan.' - Divisi :'.$jb->nama_divisi; ?></option>
               <?php } ?>
