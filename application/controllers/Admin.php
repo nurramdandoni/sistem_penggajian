@@ -493,6 +493,13 @@ class Admin extends CI_Controller {
 		$this->load->view('data_absensi',$data);
 	}
 
+	public function lihatAbsensi()
+	{
+		$nik = $this->uri->segment(3);
+		$data['absensi'] = $this->Model_admin->m_getDataAbsensi($nik);
+		$this->load->view('lihat_data_absensi',$data);
+	}
+
 	public function exportimportAbsensi()
 	{
 		$this->load->view('export_import_absensi');

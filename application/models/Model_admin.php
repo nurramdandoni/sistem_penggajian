@@ -49,6 +49,10 @@ class Model_admin extends CI_Model {
     public function m_getDataShift(){
 		return $this->db->query("SELECT a.id,a.nama_shift,a.jam_awal,a.jam_akhir,a.keterangan FROM shift a");
     }
+
+    public function m_getDataAbsensi(){
+        return $this->db->query("SELECT a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id");
+    }
     
 
     // // INSERT AREA
