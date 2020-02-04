@@ -15,7 +15,7 @@
           <img src="<?php echo base_url();?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nama User Admin</a>
+          <a style="font-size:12px;" href="<?php echo base_url(); ?>" class="d-block"><?php echo $this->session->userdata('loginAuth'); ?></a>
         </div>
       </div>
 

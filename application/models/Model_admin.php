@@ -14,6 +14,10 @@ class Model_admin extends CI_Model {
     // }
 
     // SELECT AREA
+    public function m_login($u,$p){
+		return $this->db->query("SELECT * FROM user WHERE username='$u' AND password='$p'");
+    }
+
     public function m_getDataKaryawan(){
 		return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id");
     }

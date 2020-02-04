@@ -22,7 +22,7 @@
         <i class="fas fa-user-circle"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header"><a href="<?php echo base_url(); ?>">Logout</a></span>
+          <span class="dropdown-item dropdown-header"><a href="<?php echo base_url(); ?>login/logout">Logout</a></span>
         </div>
       </li>
       <li class="nav-item">
