@@ -509,7 +509,7 @@ class Admin extends CI_Controller {
 	{
 		$from = $this->session->userdata('awalRange');
 		$to = $this->session->userdata('akhirRange');
-		$data['karyawan'] = $this->Model_admin->m_getDataKaryawanJabs($from,$to);
+		$data['karyawan'] = $this->Model_admin->m_getDataKaryawanJabsG($from,$to);
 		$this->load->view('data_invoice',$data);
 	}
 
@@ -534,9 +534,16 @@ class Admin extends CI_Controller {
 
 	public function lihatInvoiceGaji()
 	{
+		$from = $this->session->userdata('awalRange');
+		$to = $this->session->userdata('akhirRange');
 		$nik = $this->uri->segment(3);
 		$data['bonus'] = $this->Model_admin->m_getDataBonus();
 		$data['lembur'] = $this->Model_admin->m_getDataLembur();
+		$data['absensinoTelat'] = $this->Model_admin->m_getDataAbsensinoTelat($nik)->row();
+		$data['lemburShift1'] = $this->Model_admin->m_getLembur($nik,'1',$from,$to);
+		$data['lemburShift2'] = $this->Model_admin->m_getLembur($nik,'2',$from,$to);
+		$data['lemburShift3'] = $this->Model_admin->m_getLembur($nik,'3',$from,$to);
+
 		$data['profile_karyawan'] = $this->Model_admin->m_getDataKaryawanId($nik)->row();
 		$this->load->view('lihat_invoice_perkaryawan',$data);
 	}

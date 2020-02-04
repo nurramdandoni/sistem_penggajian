@@ -95,12 +95,12 @@
                   <p>Data Absensi</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?php echo base_url();?>admin/exportimportAbsensi" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Export/ Import</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
           <li class="nav-item has-treeview">
@@ -118,12 +118,12 @@
                   <p>Data Invoice Penggajian</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="<?php echo base_url();?>admin/getLaporanInvoice" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Laporan Invoice</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
           </li>
 

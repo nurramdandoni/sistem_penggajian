@@ -73,7 +73,8 @@ $this->load->view("template/sidebar");
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
                   <br>
-                  <b>No. Induk Karyawan :</b> <?php echo $profile_karyawan->NIK; ?>
+                  <b>No. Induk Karyawan :</b> <?php echo $profile_karyawan->NIK; ?><br>
+                  <b>Periode :</b> <?php echo $this->session->userdata('awalRange')." - ".$this->session->userdata('akhirRange'); ?>
                 </div>
                 <!-- /.col -->
               </div>
@@ -101,10 +102,38 @@ $this->load->view("template/sidebar");
                     </tr>
                     </tbody>
                   </table>
+
+                  <?php
+                  $hariKerjaNormal = 0;
+                  $hariKerjaWeekend = 0;
+                  $startdate = $this->session->userdata('awalRange');;
+                  $enddate = $this->session->userdata('akhirRange');;
+
+                  $datetime1 = new DateTime($startdate);
+                  $datetime2 = new DateTime($enddate);
+                  $interval = $datetime1->diff($datetime2);
+                  $days =  $interval->format('%a');
+
+                  $arr =array();
+                  $arr2 =array();
+                  for($i=0;$i<=$days;$i++){
+                      $day = date("w Y-m-d l", strtotime($startdate) + $i*86400); 
+                      if($day[0] >= 1 && $day[0] <= 5 ){
+                        $arr[] = $day;
+                      }else{
+                        $arr2[] = $day;
+                      }
+                  }
+
+                  // var_dump($arr);
+                  // echo "days excluding sat-sundays " . count($arr);
+                  $hariKerjaNormal = count($arr);
+                  $hariKerjaWeekend = count($arr2);
+                  ?>
                   <p><b>Bonus :</b></p>
-                  <p>Hari Kerja Periode (Senin - Jum'at) :</p>
-                  <p>Hari Kerja Periode (Sabtu - Minggu) :</p>
-                  <p>Kehadiran Tanpa Terlambat (Senin - Jumat) :</p>
+                  <p>Hari Kerja Periode (Senin - Jum'at) : <?php echo $hariKerjaNormal." Hari"; ?></p>
+                  <p>Hari Kerja Periode (Sabtu - Minggu) : <?php echo $hariKerjaWeekend." Hari"; ?></p>
+                  <p>Kehadiran Tanpa Terlambat (Senin - Jumat) : <?php echo $absensinoTelat->juml." Hari"; ?></p>
                     <table class="table table-striped">
                       <thead>
                       <tr>
@@ -129,9 +158,36 @@ $this->load->view("template/sidebar");
                     </table>
                   <!-- /.col -->
                   <p><b>Lembur :</b></p>
-                  <p>Lembur Shift 1 :</p>
-                  <p>Lembur Shift 2 :</p>
-                  <p>Lembur Shift 3 :</p>
+                    <p>Lembur Shift 1 : <?php
+                      $t_jam1= 0;
+                     if($lemburShift1->num_rows()>0){
+                      foreach($lemburShift1->result() as $t1){
+                        $jam = $t1->jam_kerja;
+                        $arr = explode(':', $jam);
+                        $lm = $arr[0]-8;
+                        $t_jam1 += $lm;
+                      }
+                      echo $t_jam1." Jam";
+                     }else{ echo "0 Jam"; } ?></p>
+                    <p>Lembur Shift 2 : <?php if($lemburShift2->num_rows()>0){
+                      $t_jam2= 0;
+                      foreach($lemburShift2->result() as $t2){
+                        $jam = $t2->jam_kerja;
+                        $arr = explode(':', $jam);
+                        $lm = $arr[0]-8;
+                        $t_jam2 += $lm;
+                      }
+                      echo $t_jam2." Jam";
+                    }else{ echo "0 Jam";  } ?></p>
+                    <p>Lembur Shift 3 : <?php if($lemburShift3->num_rows()>0){
+                      $t_jam3= 0;
+                      foreach($lemburShift3->result() as $t3){
+                        $jam = $t3->jam_kerja;
+                        $arr = explode(':', $jam);
+                        $lm = $arr[0]-8;
+                        $t_jam3 += $lm;
+                      }
+                      }else{ echo "0 Jam"; } ?></p>
                     <table class="table table-striped">
                       <thead>
                       <tr>

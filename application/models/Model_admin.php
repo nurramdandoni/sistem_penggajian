@@ -23,7 +23,11 @@ class Model_admin extends CI_Model {
     }
 
     public function m_getDataKaryawanJabs($from,$to){
-        return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk,e.id_shift,e.insentif_harian,e.jam_masuk,e.jam_keluar,e.status_terlambat,e.tanggal,e.total_jam_lembur,e.total_insentif_lembur FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id join absensi e on a.NIK=e.id_karyawan where e.tanggal BETWEEN '$from' AND '$to'");
+        return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk,e.id_shift,e.insentif_harian,e.jam_masuk,e.jam_keluar,e.status_terlambat,e.tanggal,e.total_jam_kerja,e.total_insentif_lembur FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id join absensi e on a.NIK=e.id_karyawan where e.tanggal BETWEEN '$from' AND '$to'");
+    }
+
+    public function m_getDataKaryawanJabsG($from,$to){
+        return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk,e.id_shift,e.insentif_harian,e.jam_masuk,e.jam_keluar,e.status_terlambat,e.tanggal,e.total_jam_kerja,e.total_insentif_lembur FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id join absensi e on a.NIK=e.id_karyawan where e.tanggal BETWEEN '$from' AND '$to' GROUP BY a.NIK");
     }
 
     public function lastNIKKaryawan(){
@@ -56,6 +60,14 @@ class Model_admin extends CI_Model {
 
     public function m_getDataAbsensi($nik){
         return $this->db->query("SELECT a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik'");
+    }
+
+    public function m_getDataAbsensinoTelat($nik){
+        return $this->db->query("SELECT count(a.id_karyawan) as juml,a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik' AND a.status_terlambat='tidak'");
+    }
+
+    public function m_getLembur($nik,$id_shift,$from,$to){
+        return $this->db->query("SELECT a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik' and a.id_shift='$id_shift' and a.tanggal BETWEEN '$from' and '$to'");
     }
     
 
