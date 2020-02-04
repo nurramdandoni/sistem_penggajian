@@ -5,7 +5,7 @@ $pdf = new FPDF('P','mm','A4');
         // membuat halaman baru
 $pdf->AddPage();
         // $pdf->SetMargins(20,20,20,20);
-$pdf->SetTitle('Laporan Absensi Mahasiswa');
+$pdf->SetTitle('STRUK GAJI KARYAWAN');
 
 
 
@@ -34,7 +34,31 @@ $pdf->Ln(5,100);
 
 
 $pdf->SetFont('Arial','',14);
-$pdf->Cell(0,10,'ABSENSI KEHADIRAN MAHASISWA',0,1,'C');
+$pdf->Cell(0,10,'STRUK GAJI KARYAWAN',0,1,'C');
+$pdf->SetFont('Arial','',10);
+$pdf->Cell(500,4,'',0,1,'L');
+$pdf->cell(20);
+$pdf->Cell(100,5,'Gaji Pokok',0,0,'L');
+foreach($invoice->result() as $in){
+        $pdf->Cell(60,5,'Rp. '.$in->gapok,0,1,'L');
+}
+$pdf->cell(20);
+$pdf->Cell(100,5,'Insentif Bonus',0,0,'L');
+foreach($invoice->result() as $in){
+        $pdf->Cell(60,5,'Rp. '.$in->total_bonus,0,1,'L');
+}
+$pdf->cell(20);
+$pdf->Cell(100,5,'Insentif Lembur',0,0,'L');
+foreach($invoice->result() as $in){
+        $pdf->Cell(60,5,'Rp. '.$in->total_lembur,0,1,'L');
+}
+$pdf->SetFont('Arial','B',10);
+// $pdf->line();
+$pdf->cell(20);
+$pdf->Cell(100,5,'Total',0,0,'L');
+foreach($invoice->result() as $in){
+        $pdf->Cell(60,5,'Rp. '.$in->take_home_pay,0,1,'L');
+}
 
 $pdf->Output();
 

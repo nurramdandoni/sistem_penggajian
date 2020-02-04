@@ -795,7 +795,11 @@ class Admin extends CI_Controller {
 		
 		$cek = $this->session->userdata('loginAuth');
 		if(isset($cek)){
-			$this->load->view('cetak_invoice_gaji');
+			$id_karyawan =$this->uri->segment(3);
+			$from = $this->session->userdata('awalRange');
+			$to = $this->session->userdata('akhirRange');
+			$data['invoice'] = $this->Model_admin->checkinvoiceBulan($id_karyawan,$from,$to);
+			$this->load->view('cetak_invoice_gaji',$data);
 
 		}else{
 

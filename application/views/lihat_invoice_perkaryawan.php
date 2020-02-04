@@ -276,7 +276,7 @@ $this->load->view("template/sidebar");
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print Struk Gaji</a>
+                  <a href="<?php echo base_url()?>admin/cetakInvoice/<?php echo $this->uri->segment(3)?>" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print Struk Gaji</a>
                   <button type="submit" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Simpan Perubahan
                   </button>
                 </div>
