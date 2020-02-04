@@ -815,6 +815,7 @@ class Admin extends CI_Controller {
 			$data['bonus'] = $this->Model_admin->m_getDataBonus();
 			$data['lembur'] = $this->Model_admin->m_getDataLembur();
 			$data['absensinoTelat'] = $this->Model_admin->m_getDataAbsensinoTelat($nik)->row();
+			$data['absensiTelat'] = $this->Model_admin->m_getDataAbsensiTelat($nik)->row();
 			$data['lemburShift1'] = $this->Model_admin->m_getLembur($nik,'1',$from,$to);
 			$data['lemburShift2'] = $this->Model_admin->m_getLembur($nik,'2',$from,$to);
 			$data['lemburShift3'] = $this->Model_admin->m_getLembur($nik,'3',$from,$to);
@@ -826,6 +827,80 @@ class Admin extends CI_Controller {
 
 			print "<script>alert('Akses Ditolak!');</script>";
 			redirect(base_url('login'));
+		}
+	}
+
+	public function saveInvoice(){
+
+		$id_karyawan = $this->input->post('id_karyawan');
+		$from = $this->session->userdata('awalRange');
+		$to = $this->session->userdata('akhirRange');
+		$gapok = $this->input->post('vGapok');
+		$jumlah_hadirnoTelat = $this->input->post('vabsenNoTelat');
+		$jumlah_hadirTelat = $this->input->post('vabsenTelat');
+		$bonus_arr = $this->input->post('vidBonus');
+		$id_bonus = implode(',',$bonus_arr);
+		$total_bonus = $this->input->post('total_bonus');
+		$lembur_arr = $this->input->post('vidLembur');
+		$id_lembur = implode(',',$lembur_arr);
+		$total_lembur = $this->input->post('total_lembur');
+		$tanggal_cetak = date('Y-m-d');
+		$keterangan = $this->input->post('keterangan');
+
+		$data = array(
+			'id_karyawan' => $id_karyawan,
+			'range_awal' => $from,
+			'range_akhir' => $to,
+			'gapok' => $gapok,
+			'jumlah_hadir_no_telat' => $jumlah_hadirnoTelat,
+			'jumlah_hadir_telat' => $jumlah_hadirTelat,
+			'id_bonus' => $id_bonus,
+			'total_bonus' => $total_bonus,
+			'id_lembur' => $id_lembur,
+			'total_lembur' => $total_lembur,
+			'tanggal_cetak' => $tanggal_cetak,
+			'keterangan' => $keterangan
+		);
+
+		$where = array(
+			'range_awal' => $from,
+			'range_akhir' => $to,
+			'id_karyawan' => $id_karyawan
+		);
+		$cek = $this->Model_admin->checkinvoiceBulan($id_karyawan,$from,$to);
+		if($cek->num_rows() > 0){
+
+	
+			$aksi = $this->Model_admin->updatedataArray($where, $data, 'invoice');
+			if($aksi){
+	
+				print "<script>alert('Data Berhasil Diperbaharui!');history.go(-1);</script>";
+				// redirect(base_url('admin/getDataKaryawan'));
+				exit();
+	
+			}else{
+	
+				print "<script>alert('Data Gagal Diperbaharui!');history.go(-1);</script>";
+				// redirect(base_url('admin/getDataKaryawan'));
+				exit();
+	
+			}
+
+		}else{
+			$aksi = $this->Model_admin->insertdataArray($data,'invoice');
+				if($aksi){
+		
+					print "<script>alert('Data Berhasil Ditambahkan!');history.go(-1);</script>";
+					// redirect(base_url('admin/getDataKaryawan'));
+					exit();
+		
+				}else{
+		
+					print "<script>alert('Data Gagal Ditambahkan!');history.go(-1);</script>";
+					// redirect(base_url('admin/getDataKaryawan'));
+					exit();
+		
+				}
 		}
 	}
 

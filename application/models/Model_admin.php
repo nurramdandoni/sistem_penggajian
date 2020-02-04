@@ -62,12 +62,20 @@ class Model_admin extends CI_Model {
 		return $this->db->query("SELECT a.id,a.nama_shift,a.jam_awal,a.jam_akhir,a.keterangan FROM shift a");
     }
 
+    public function checkinvoiceBulan($id_karyawan,$from,$to){
+      return $this->db->query("SELECT * FROM invoice a WHERE a.id_karyawan='$id_karyawan' and a.range_awal >= '$from' and a.range_akhir <= '$to'");
+    }
+
     public function m_getDataAbsensi($nik){
         return $this->db->query("SELECT a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik'");
     }
 
     public function m_getDataAbsensinoTelat($nik){
         return $this->db->query("SELECT count(a.id_karyawan) as juml,a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik' AND a.status_terlambat='tidak'");
+    }
+
+    public function m_getDataAbsensiTelat($nik){
+        return $this->db->query("SELECT count(a.id_karyawan) as juml,a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik' AND a.status_terlambat='ya'");
     }
 
     public function m_getLembur($nik,$id_shift,$from,$to){

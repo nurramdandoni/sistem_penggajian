@@ -98,7 +98,7 @@ $this->load->view("template/sidebar");
                     <tr>
                       <td><input type="checkbox" checked/> Gaji Pokok</td>
                       <td><?php echo $profile_karyawan->gaji; ?></td>
-                      <input type="hidden" value="<?php echo $profile_karyawan->gaji; ?>" id="Igaji"/>
+                      <input type="hidden" value="<?php echo $profile_karyawan->gaji; ?>" id="Igaji" name="vGapok"/>
                       <td><input type="text" value="1" id="Jgaji" disabled/></td>
                       <td><input type="text" value="0" id="Tgaji" disabled/></td>
                     </tr>
@@ -135,7 +135,10 @@ $this->load->view("template/sidebar");
                   <p><b>Bonus :</b></p>
                   <p>Hari Kerja Periode (Senin - Jum'at) : <?php echo $hariKerjaNormal." Hari"; ?></p>
                   <p>Hari Kerja Periode (Sabtu - Minggu) : <?php echo $hariKerjaWeekend." Hari"; ?></p>
-                  <p>Kehadiran Tanpa Terlambat (Senin - Jumat) : <?php echo $absensinoTelat->juml." Hari"; ?></p>
+                <p>Kehadiran Tanpa Terlambat (Senin - Jumat) : <?php echo $absensinoTelat->juml." Hari"; ?><p>
+                <p>Kehadiran Terlambat (Senin - Jumat) : <?php echo $absensiTelat->juml." Hari"; ?><p>
+                <input type="hidden" value="<?php echo $absensinoTelat->juml; ?>" name="vabsenNoTelat"/>
+                <input type="hidden" value="<?php echo $absensiTelat->juml; ?>" name="vabsenTelat"/>
                     <table class="table table-striped">
                       <thead>
                       <tr>
@@ -156,11 +159,13 @@ $this->load->view("template/sidebar");
                             <td><?php echo $bns->keterangan; ?></td>
                             <td><?php echo $bns->insentif; ?></td>
                             <input type="hidden" value="<?php echo $bns->insentif; ?>" id="Ibns<?php echo $bnsCno; ?>"/>
-                            <td><input type="text" value="0" class="qty" id="Jbns<?php echo $bnsCno; ?>" placeholder="Jumlah"/></td>
+                            <input type="hidden" value="<?php echo $bns->id; ?>" name="vidBonus[]"/>
+                            <td><input type="number" value="0" class="qty" id="Jbns<?php echo $bnsCno; ?>" placeholder="Jumlah"/></td>
                             <td><input type="text" value="0" id="Tbns<?php echo $bnsCno; ?>" placeholder="Total" disabled/></td>
                           </tr>
                         <?php $bnsCno++; } ?>
                       </tbody>
+                      <input type="hidden" value="0" name="total_bonus" id="total_bonus"/>
                     </table>
                   <!-- /.col -->
                   <p><b>Lembur :</b></p>
@@ -206,6 +211,7 @@ $this->load->view("template/sidebar");
                       </thead>
                       <tbody>
                         <input type="hidden" id="jml_lmbr" value="<?php echo $lembur->num_rows(); ?>">
+                        <input type="hidden" value="<?php echo $this->uri->segment(3); ?>" name="id_karyawan">
                       <?php
                       $lmbrCno = 0;
                        foreach($lembur->result() as $lmbr){ ?>
@@ -214,11 +220,13 @@ $this->load->view("template/sidebar");
                             <td><?php echo $lmbr->keterangan; ?></td>
                             <td><?php echo $lmbr->insentif; ?></td>
                             <input type="hidden" value="<?php echo $lmbr->insentif; ?>" id="Ilmb<?php echo $lmbrCno; ?>"/>
-                            <td><input type="text" value="0" class="qty" id="Jlmb<?php echo $lmbrCno; ?>" placeholder="Jumlah"/></td>
+                            <input type="hidden" value="<?php echo $lmbr->id; ?>" name="vidLembur[]"/>
+                            <td><input type="number" value="0" class="qty" id="Jlmb<?php echo $lmbrCno; ?>" placeholder="Jumlah"/></td>
                             <td><input type="text" value="0" id="Tlmb<?php echo $lmbrCno; ?>" placeholder="Total" disabled/></td>
                           </tr>
                         <?php $lmbrCno++; } ?>
                       </tbody>
+                      <input type="hidden" value="0" name="total_lembur" id="total_lembur"/>
                     </table>
                   <!-- /.col -->
                 </div>
@@ -236,9 +244,7 @@ $this->load->view("template/sidebar");
                   <img src="../../dist/img/credit/paypal2.png" alt="Paypal"> -->
 
                   <p class="text-muted well well-sm shadow-none" style="margin-top: 10px;">
-                    <!-- Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles, weebly ning heekya handango imeem
-                    plugg
-                    dopplr jibjab, movity jajah plickers sifteo edmodo ifttt zimbra. -->
+                    <textarea name="keterangan"cols="50" rows="5">Catatan : </textarea>
                   </p>
                 </div>
                 <!-- /.col -->
@@ -300,6 +306,8 @@ $(document).ready(function(){
   var bj = c-(c*0.02);
 
   var subTotal = $('#subTotal').val(c);
+  $('#total_bonus').val(b);
+  $('#total_lembur').val(l);
   var bpjs = $('#bpjs').val((c*0.02));
   var total = $('#total').val(bj);
 
@@ -372,7 +380,8 @@ $(document).ready(function(){
 
     var c = parseInt(l+b+g);
     var bj = c-(c*0.02);
-
+    $('#total_bonus').val(b);
+    $('#total_lembur').val(l);
     var subTotal = $('#subTotal').val(c);
     var bpjs = $('#bpjs').val((c*0.02));
     var total = $('#total').val(bj);
