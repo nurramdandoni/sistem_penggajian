@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.9.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 04 Feb 2020 pada 00.47
--- Versi Server: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- Waktu pembuatan: 04 Feb 2020 pada 10.18
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.2.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -34,7 +36,7 @@ CREATE TABLE `absensi` (
   `id_shift` int(11) NOT NULL,
   `jam_masuk` datetime NOT NULL,
   `jam_keluar` datetime NOT NULL,
-  `total_jam_lembur` int(11) NOT NULL,
+  `total_jam_kerja` time NOT NULL,
   `total_insentif_lembur` double(20,0) NOT NULL,
   `status_terlambat` enum('ya','tidak') NOT NULL,
   `insentif_harian` double(20,0) NOT NULL
@@ -44,9 +46,12 @@ CREATE TABLE `absensi` (
 -- Dumping data untuk tabel `absensi`
 --
 
-INSERT INTO `absensi` (`id`, `id_karyawan`, `tanggal`, `jenis_hari`, `id_shift`, `jam_masuk`, `jam_keluar`, `total_jam_lembur`, `total_insentif_lembur`, `status_terlambat`, `insentif_harian`) VALUES
-(1, 'STTB1234', '2020-01-25', '0', 1, '2020-02-03 08:00:00', '2020-02-03 17:00:00', 1, 10000, 'tidak', 8000),
-(2, 'STTB1235', '2020-02-03', '0', 1, '2020-02-03 08:00:00', '2020-02-03 16:00:00', 3, 30000, 'tidak', 8000);
+INSERT INTO `absensi` (`id`, `id_karyawan`, `tanggal`, `jenis_hari`, `id_shift`, `jam_masuk`, `jam_keluar`, `total_jam_kerja`, `total_insentif_lembur`, `status_terlambat`, `insentif_harian`) VALUES
+(1, 'STTB1234', '2020-01-25', '0', 1, '2020-02-03 08:00:00', '2020-02-03 17:00:00', '00:00:00', 10000, 'tidak', 8000),
+(2, 'STTB1235', '2020-02-03', '0', 1, '2020-02-03 08:00:00', '2020-02-03 16:00:00', '00:00:03', 30000, 'tidak', 8000),
+(3, 'STTB1234', '2020-01-26', '0', 1, '2020-01-26 08:00:00', '2020-01-26 16:00:00', '00:00:00', 0, 'tidak', 0),
+(4, 'STTB1234', '2020-01-27', '0', 1, '2020-01-27 08:00:00', '2020-01-27 18:00:00', '00:00:00', 0, 'tidak', 0),
+(5, 'STTB1234', '2020-01-28', '0', 1, '2020-01-28 08:00:00', '2020-01-28 17:00:00', '00:00:00', 0, 'tidak', 0);
 
 -- --------------------------------------------------------
 
@@ -141,8 +146,17 @@ CREATE TABLE `invoice` (
   `total_bonus` double(20,0) NOT NULL,
   `id_lembur` text NOT NULL,
   `total_lembur` double(20,0) NOT NULL,
+  `take_home_pay` double(20,0) NOT NULL,
+  `tanggal_cetak` date NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `invoice`
+--
+
+INSERT INTO `invoice` (`id`, `id_karyawan`, `range_awal`, `range_akhir`, `gapok`, `jumlah_hadir_no_telat`, `jumlah_hadir_telat`, `id_bonus`, `total_bonus`, `id_lembur`, `total_lembur`, `take_home_pay`, `tanggal_cetak`, `keterangan`) VALUES
+(3, 'STTB1234', '2020-01-26', '2020-02-25', 2400000, 4, 0, '1,2,3,4', 232000, '1,2,3', 30000, 2662000, '2020-02-04', 'Catatan : ');
 
 -- --------------------------------------------------------
 
@@ -186,23 +200,26 @@ CREATE TABLE `karyawan` (
   `nama_karyawan` varchar(255) NOT NULL,
   `id_divisi` int(11) NOT NULL,
   `id_jabatan` int(11) NOT NULL,
-  `tanggal_masuk` date NOT NULL
+  `tanggal_masuk` date NOT NULL,
+  `alamat` varchar(255) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `no_telp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `karyawan`
 --
 
-INSERT INTO `karyawan` (`NIK`, `nama_karyawan`, `id_divisi`, `id_jabatan`, `tanggal_masuk`) VALUES
-('STTB1234', 'Doni Nurramdan, A. Md.', 3, 7, '0000-00-00'),
-('STTB1235', 'Muhammad Faqih, S. Kom.', 3, 6, '2020-02-05'),
-('STTB1236', 'Cintiya Dewiani Putri, S. Kom.', 3, 6, '2020-01-15'),
-('STTB1237', 'Titi Widaretna, S. T.', 3, 2, '2017-01-27'),
-('STTB1238', 'Gia Yuliana, S. Kom.', 3, 9, '2017-01-01'),
-('STTB1239', 'Andri Nugroho, S. Kom.', 3, 5, '2018-09-01'),
-('STTB1240', 'Syifa Nur Fauziah, S. Kom.', 1, 1, '0000-00-00'),
-('STTB1241', 'Hena Sulaeman, S. T.', 2, 3, '2017-01-01'),
-('STTB1242', 'Fahri Fauzi', 2, 4, '2019-01-01');
+INSERT INTO `karyawan` (`NIK`, `nama_karyawan`, `id_divisi`, `id_jabatan`, `tanggal_masuk`, `alamat`, `email`, `no_telp`) VALUES
+('STTB1234', 'Doni Nurramdan, A. Md.', 3, 7, '0000-00-00', 'Dusun Jati Kidul, RT 004 RW 001 Desa Jagara,Kecamatan Darma, Kuningan 45562', 'nurramdandoni@gmail.com', '0895330802566'),
+('STTB1235', 'Muhammad Faqih, S. Kom.', 3, 6, '2020-02-05', 'Cirebon', 'kotarokurosaki@gmail.com', '085000234'),
+('STTB1236', 'Cintiya Dewiani Putri, S. Kom.', 3, 6, '2020-01-15', '', '', ''),
+('STTB1237', 'Titi Widaretna, S. T.', 3, 2, '2017-01-27', '', '', ''),
+('STTB1238', 'Gia Yuliana, S. Kom.', 3, 9, '2017-01-01', '', '', ''),
+('STTB1239', 'Andri Nugroho, S. Kom.', 3, 5, '2018-09-01', '', '', ''),
+('STTB1240', 'Syifa Nur Fauziah, S. Kom.', 1, 1, '0000-00-00', '', '', ''),
+('STTB1241', 'Hena Sulaeman, S. T.', 2, 3, '2017-01-01', '', '', ''),
+('STTB1242', 'Fahri Fauzi', 2, 4, '2019-01-01', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -273,14 +290,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `id_karyawan`, `username`, `password`) VALUES
-(1, 'STTB1234', 'doni92', '6cc5ca674e432cac6507065d2f49a3f5666334f1');
+(1, 'STTB1234', 'nurramdandoni@gmail.com', '6cc5ca674e432cac6507065d2f49a3f5666334f1');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `absensi`
+-- Indeks untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`),
@@ -288,32 +305,32 @@ ALTER TABLE `absensi`
   ADD KEY `id_shift` (`id_shift`);
 
 --
--- Indexes for table `bonus`
+-- Indeks untuk tabel `bonus`
 --
 ALTER TABLE `bonus`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `divisi`
+-- Indeks untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `gaji`
+-- Indeks untuk tabel `gaji`
 --
 ALTER TABLE `gaji`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_jabatan` (`id_jabatan`);
 
 --
--- Indexes for table `invoice`
+-- Indeks untuk tabel `invoice`
 --
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jabatan`
+-- Indeks untuk tabel `jabatan`
 --
 ALTER TABLE `jabatan`
   ADD PRIMARY KEY (`id`),
@@ -321,25 +338,52 @@ ALTER TABLE `jabatan`
   ADD KEY `id` (`id`);
 
 --
--- Indexes for table `shift`
+-- Indeks untuk tabel `karyawan`
+--
+ALTER TABLE `karyawan`
+  ADD UNIQUE KEY `NIK` (`NIK`);
+
+--
+-- Indeks untuk tabel `shift`
 --
 ALTER TABLE `shift`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `invoice`
+-- AUTO_INCREMENT untuk tabel `absensi`
+--
+ALTER TABLE `absensi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT for table `shift`
+-- AUTO_INCREMENT untuk tabel `shift`
 --
 ALTER TABLE `shift`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
