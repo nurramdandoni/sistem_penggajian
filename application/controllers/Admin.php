@@ -523,12 +523,22 @@ class Admin extends CI_Controller {
 		$data['karyawan'] = $this->Model_admin->m_getDataKaryawanJabs($from,$to);
 		$this->session->set_userdata('awalRange', $awal);
 		$this->session->set_userdata('akhirRange', $akhir);
-		$this->load->view('data_invoice',$data);
+		redirect(base_url('admin/getDataInvoice'));
+		// $this->load->view('data_invoice',$data);
 	}
 
 	public function cetakInvoice()
 	{
 		$this->load->view('cetak_invoice_gaji');
+	}
+
+	public function lihatInvoiceGaji()
+	{
+		$nik = $this->uri->segment(3);
+		$data['bonus'] = $this->Model_admin->m_getDataBonus();
+		$data['lembur'] = $this->Model_admin->m_getDataLembur();
+		$data['profile_karyawan'] = $this->Model_admin->m_getDataKaryawanId($nik)->row();
+		$this->load->view('lihat_invoice_perkaryawan',$data);
 	}
 
 	public function getLaporanInvoice()

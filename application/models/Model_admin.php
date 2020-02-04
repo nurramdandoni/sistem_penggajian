@@ -18,6 +18,10 @@ class Model_admin extends CI_Model {
 		return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id");
     }
 
+    public function m_getDataKaryawanId($id){
+		return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk,a.alamat,a.email,a.no_telp,d.gaji FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id join gaji d on c.id=d.id_jabatan WHERE a.NIK='$id'");
+    }
+
     public function m_getDataKaryawanJabs($from,$to){
         return $this->db->query("SELECT a.NIK,a.nama_karyawan,b.id as id_divisi,b.nama_divisi,c.id as id_jabatan,c.nama_jabatan,a.tanggal_masuk,e.id_shift,e.insentif_harian,e.jam_masuk,e.jam_keluar,e.status_terlambat,e.tanggal,e.total_jam_lembur,e.total_insentif_lembur FROM karyawan a join divisi b on a.id_divisi=b.id join jabatan c on a.id_jabatan=c.id join absensi e on a.NIK=e.id_karyawan where e.tanggal BETWEEN '$from' AND '$to'");
     }
@@ -50,8 +54,8 @@ class Model_admin extends CI_Model {
 		return $this->db->query("SELECT a.id,a.nama_shift,a.jam_awal,a.jam_akhir,a.keterangan FROM shift a");
     }
 
-    public function m_getDataAbsensi(){
-        return $this->db->query("SELECT a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id");
+    public function m_getDataAbsensi($nik){
+        return $this->db->query("SELECT a.id,a.id_karyawan,b.nama_karyawan,a.tanggal,c.nama_shift,a.jenis_hari,a.id_shift,a.jam_masuk,a.jam_keluar,TIMEDIFF(a.jam_keluar,a.jam_masuk) as jam_kerja,a.status_terlambat FROM absensi a join karyawan b on a.id_karyawan=b.NIK join shift c on a.id_shift=c.id WHERE a.id_karyawan='$nik'");
     }
     
 

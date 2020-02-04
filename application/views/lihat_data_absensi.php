@@ -20,7 +20,7 @@ div.dataTables_paginate{
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Data Absensi ( <?php echo $this->uri->segment(3); ?> )S</h1>
+            <h1>Data Absensi ( <?php echo $this->uri->segment(3); ?> )</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -52,6 +52,7 @@ div.dataTables_paginate{
                   <th style="text-align:center;">Shift</th>
                   <th style="text-align:center;">Jam Masuk</th>
                   <th style="text-align:center;">Jam Keluar</th>
+                  <th style="text-align:center;">Status</th>
                   <th style="text-align:center;">Jam Kerja</th>
                   <th style="text-align:center;">Jam Lembur</th>
                 </tr>
@@ -65,6 +66,7 @@ div.dataTables_paginate{
                       <td style="text-align:center;"><?php echo $absn->nama_shift; ?></td>
                       <td style="text-align:center;"><?php echo $absn->jam_masuk; ?></td>
                       <td style="text-align:center;"><?php echo $absn->jam_keluar; ?>
+                      <td style="text-align:center;"><?php echo $absn->status_terlambat; ?>
                       <td style="text-align:center;"><?php echo $absn->jam_kerja; ?>
                       </td><td style="text-align:center;">
                         <?php 
