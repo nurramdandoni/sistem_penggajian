@@ -24,6 +24,7 @@ $this->load->view("template/sidebar");
         </div>
       </div><!-- /.container-fluid -->
     </section>
+<form action="<?php echo base_url()?>admin/saveInvoice" method="POST">
 
   <!-- Main content -->
   <section class="content">
@@ -97,8 +98,9 @@ $this->load->view("template/sidebar");
                     <tr>
                       <td><input type="checkbox" checked/> Gaji Pokok</td>
                       <td><?php echo $profile_karyawan->gaji; ?></td>
-                      <td>1</td>
-                      <td><?php echo $profile_karyawan->gaji; ?></td>
+                      <input type="hidden" value="<?php echo $profile_karyawan->gaji; ?>" id="Igaji"/>
+                      <td><input type="text" value="1" id="Jgaji" disabled/></td>
+                      <td><input type="text" value="0" id="Tgaji" disabled/></td>
                     </tr>
                     </tbody>
                   </table>
@@ -144,16 +146,20 @@ $this->load->view("template/sidebar");
                         <th>Total</th>
                       </tr>
                       </thead>
+                      <input type="hidden" id="jml_bns" value="<?php echo $bonus->num_rows(); ?>">
                       <tbody>
-                        <?php foreach($bonus->result() as $bns){ ?>
+                        <?php
+                        $bnsCno = 0;
+                         foreach($bonus->result() as $bns){ ?>
                           <tr>
                             <td><input type="checkbox"/> <?php echo $bns->nama_bonus; ?></td>
                             <td><?php echo $bns->keterangan; ?></td>
                             <td><?php echo $bns->insentif; ?></td>
-                            <td><input type="text" value="" placeholder="Jumlah"></td>
-                            <td>-</td>
+                            <input type="hidden" value="<?php echo $bns->insentif; ?>" id="Ibns<?php echo $bnsCno; ?>"/>
+                            <td><input type="text" value="0" class="qty" id="Jbns<?php echo $bnsCno; ?>" placeholder="Jumlah"/></td>
+                            <td><input type="text" value="0" id="Tbns<?php echo $bnsCno; ?>" placeholder="Total" disabled/></td>
                           </tr>
-                        <?php } ?>
+                        <?php $bnsCno++; } ?>
                       </tbody>
                     </table>
                   <!-- /.col -->
@@ -199,15 +205,19 @@ $this->load->view("template/sidebar");
                       </tr>
                       </thead>
                       <tbody>
-                      <?php foreach($lembur->result() as $lmbr){ ?>
+                        <input type="hidden" id="jml_lmbr" value="<?php echo $lembur->num_rows(); ?>">
+                      <?php
+                      $lmbrCno = 0;
+                       foreach($lembur->result() as $lmbr){ ?>
                           <tr>
                             <td><input type="checkbox"/> <?php echo $lmbr->nama_lembur; ?></td>
                             <td><?php echo $lmbr->keterangan; ?></td>
                             <td><?php echo $lmbr->insentif; ?></td>
-                            <td><input type="text" value="" placeholder="Jumlah"></td>
-                            <td>-</td>
+                            <input type="hidden" value="<?php echo $lmbr->insentif; ?>" id="Ilmb<?php echo $lmbrCno; ?>"/>
+                            <td><input type="text" value="0" class="qty" id="Jlmb<?php echo $lmbrCno; ?>" placeholder="Jumlah"/></td>
+                            <td><input type="text" value="0" id="Tlmb<?php echo $lmbrCno; ?>" placeholder="Total" disabled/></td>
                           </tr>
-                        <?php } ?>
+                        <?php $lmbrCno++; } ?>
                       </tbody>
                     </table>
                   <!-- /.col -->
@@ -239,15 +249,15 @@ $this->load->view("template/sidebar");
                     <table class="table">
                       <tr>
                         <th style="width:50%">Subtotal:</th>
-                        <td>-</td>
+                        <td><input type="text" value="0" id="subTotal" disabled/></td>
                       </tr>
                       <tr>
                         <th>BPJS Ketenagakerjaan (2.0%)</th>
-                        <td>-</td>
+                        <td><input type="text" value="0" id="bpjs" disabled/></td>
                       </tr>
                       <tr>
                         <th>Total:</th>
-                        <td>-</td>
+                        <td><input type="text" value="0" id="total" disabled/></td>
                       </tr>
                     </table>
                   </div>
@@ -260,7 +270,7 @@ $this->load->view("template/sidebar");
               <div class="row no-print">
                 <div class="col-12">
                   <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Simpan Perubahan
+                  <button type="submit" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Simpan Perubahan
                   </button>
                 </div>
               </div>
@@ -271,9 +281,104 @@ $this->load->view("template/sidebar");
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+</form>
 </div>
 <!-- /.content-wrapper -->
 
 <?php
 $this->load->view("template/footer");
 ?>
+<script>
+$(document).ready(function(){
+  // saat ready
+  var jL = $('#jml_lmbr').val();
+  var jB = $('#jml_bns').val();
+  var g = parseInt($('#Igaji').val());
+  var l = 0;
+  var b = 0;
+  var c = parseInt(l+b+g);
+  var bj = c-(c*0.02);
+
+  var subTotal = $('#subTotal').val(c);
+  var bpjs = $('#bpjs').val((c*0.02));
+  var total = $('#total').val(bj);
+
+  for(var i=0;i<jL;i++){
+
+    var insentif_lembur = $('#Ilmb'+i).val();
+    var jumlah_lembur = $('#Jlmb'+i).val();
+    var total_lembur = insentif_lembur*jumlah_lembur;
+    $('#Tlmb'+i).val(total_lembur);
+
+    l += parseInt(total_lembur);
+
+  }
+  for(var j=0;j<jB;j++){
+
+    var insentif_bonus = $('#Ibns'+j).val();
+    var jumlah_bonus = $('#Jbns'+j).val();
+    var total_bonus = insentif_bonus*jumlah_bonus;
+    $('#Tbns'+j).val(total_bonus);
+
+    b += parseInt(total_bonus);
+
+  }
+    var insentif_gaji = $('#Igaji').val();
+    var jumlah_gaji = $('#Jgaji').val();
+    var total_gaji = insentif_gaji*jumlah_gaji;
+    $('#Tgaji').val(total_gaji);
+
+  // saat keypress
+  $('.qty').keyup(function(){
+    var jL = $('#jml_lmbr').val();
+    var jB = $('#jml_bns').val();
+    var g = parseInt($('#Igaji').val());
+    var l = 0;
+    var b = 0;
+
+
+
+
+  for(var i=0;i<jL;i++){
+
+    var insentif_lembur = $('#Ilmb'+i).val();
+    var jumlah_lembur = $('#Jlmb'+i).val();
+    var total_lembur = insentif_lembur*jumlah_lembur;
+    $('#Tlmb'+i).val(total_lembur);
+
+    l += parseInt(total_lembur);
+
+  }
+  for(var j=0;j<jB;j++){
+
+    var insentif_bonus = $('#Ibns'+j).val();
+    var jumlah_bonus = $('#Jbns'+j).val();
+    var total_bonus = insentif_bonus*jumlah_bonus;
+    $('#Tbns'+j).val(total_bonus);
+
+    b += parseInt(total_bonus);
+
+  }
+
+    var insentif_gaji = $('#Igaji').val();
+    var jumlah_gaji = $('#Jgaji').val();
+    var total_gaji = insentif_gaji*jumlah_gaji;
+    $('#Tgaji').val(total_gaji);
+
+
+  // var subTotal = $('#subTotal').val(c);
+  // var bpjs = $('#bpjs').val((c*0.02));
+  // var total = $('#total').val(bj);
+
+    var c = parseInt(l+b+g);
+    var bj = c-(c*0.02);
+
+    var subTotal = $('#subTotal').val(c);
+    var bpjs = $('#bpjs').val((c*0.02));
+    var total = $('#total').val(bj);
+
+  });
+
+
+});
+</script>
