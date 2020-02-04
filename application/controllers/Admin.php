@@ -845,6 +845,7 @@ class Admin extends CI_Controller {
 		$id_lembur = implode(',',$lembur_arr);
 		$total_lembur = $this->input->post('total_lembur');
 		$tanggal_cetak = date('Y-m-d');
+		$take_home_pay = $this->input->post('take_home_pay');
 		$keterangan = $this->input->post('keterangan');
 
 		$data = array(
@@ -859,6 +860,7 @@ class Admin extends CI_Controller {
 			'id_lembur' => $id_lembur,
 			'total_lembur' => $total_lembur,
 			'tanggal_cetak' => $tanggal_cetak,
+			'take_home_pay' => $take_home_pay,
 			'keterangan' => $keterangan
 		);
 

@@ -227,6 +227,7 @@ $this->load->view("template/sidebar");
                         <?php $lmbrCno++; } ?>
                       </tbody>
                       <input type="hidden" value="0" name="total_lembur" id="total_lembur"/>
+                      <input type="hidden" value="0" name="take_home_pay" id="take_home_pay"/>
                     </table>
                   <!-- /.col -->
                 </div>
@@ -275,7 +276,7 @@ $this->load->view("template/sidebar");
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print Struk Gaji</a>
                   <button type="submit" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Simpan Perubahan
                   </button>
                 </div>
@@ -308,6 +309,7 @@ $(document).ready(function(){
   var subTotal = $('#subTotal').val(c);
   $('#total_bonus').val(b);
   $('#total_lembur').val(l);
+  $('#take_home_pay').val(c);
   var bpjs = $('#bpjs').val((c*0.02));
   var total = $('#total').val(bj);
 
@@ -383,6 +385,7 @@ $(document).ready(function(){
     $('#total_bonus').val(b);
     $('#total_lembur').val(l);
     var subTotal = $('#subTotal').val(c);
+    $('#take_home_pay').val(c);
     var bpjs = $('#bpjs').val((c*0.02));
     var total = $('#total').val(bj);
 
